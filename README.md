@@ -14,6 +14,7 @@ Built and maintained by Akhil C Kuriakose (aided also by Jephin Jose) as a long-
 - **`thoughts.js`** — the content. Edit *only this file* to add a new thought.
 - **`CNAME`** — connects the custom domain. Do not delete.
 - **`README.md`** — this file.
+- **`WORKFLOW.md`** — details the workflow to add posts and some pointers for future enhancements.
 
 ## Adding a thought
 

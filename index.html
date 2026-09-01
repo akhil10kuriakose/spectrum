@@ -129,7 +129,7 @@ nav.main a:hover,nav.main a.active{color:var(--ink)}
 
 /* section header (tinted) */
 .sec-hd{border-bottom:1px solid var(--hair)}
-.sec-hd .inner{padding:64px 0}
+.sec-hd .inner{padding-top:64px;padding-bottom:64px}
 .sec-hd h1{font-family:var(--display);font-size:60px;margin-top:12px;line-height:1.05}
 .sec-hd .sub{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--mist);margin-top:8px}
 .sec-hd .blurb{max-width:36rem;font-size:18px;line-height:1.7;margin-top:24px;color:#3a3a3d}
@@ -189,7 +189,7 @@ footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
 
 /* utilities */
 .mt6{margin-top:24px}.mt10{margin-top:40px}.mt14{margin-top:56px}
-.section-pad{padding:56px 0}
+.section-pad{padding-top:56px;padding-bottom:56px}
 .row-between{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
 .center{text-align:center}
 .maxw2{max-width:40rem;margin-left:auto;margin-right:auto}
@@ -219,7 +219,7 @@ footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
   .arow .adate{display:none}
   .hero{padding:40px 0 16px}
   .hero h1{font-size:38px}
-  .sec-hd .inner{padding:48px 0}
+  .sec-hd .inner{padding-top:48px;padding-bottom:48px}
   .sec-hd h1{font-size:34px}
   .sec-hd .sub{font-size:22px}
   .article h1{font-size:32px}
@@ -425,7 +425,7 @@ function pageSpectrum(){
         '<p class="c-sub" style="font-family:var(--serif);font-style:italic;color:var(--mist);font-size:19px">'+esc(s.subtitle)+'</p>'+
         '<p class="ex" style="margin-top:6px">'+esc(s.blurb)+'</p></div></a>';
   }).join('');
-  return '<main class="fade"><div class="wrap" style="padding:56px 0 40px">'+
+  return '<main class="fade"><div class="wrap" style="padding-top:56px;padding-bottom:40px">'+
     '<div class="center maxw2"><p class="eyebrow">The Spectrum</p>'+
       '<h1 class="h-page">Seven lenses, one flower</h1>'+
       '<p class="lead" style="max-width:none;margin:20px auto 0">Each petal is a recurring direction my thoughts travel. Hover to learn it, click to enter it. The white centre is always the way home.</p></div>'+
@@ -457,7 +457,7 @@ function pageSection(id){
       '<h1>'+esc(s.title)+'</h1><p class="sub">'+esc(s.subtitle)+'</p>'+
       '<p class="blurb">'+esc(s.blurb)+'</p>'+
       '<p class="q" style="color:'+s.hex+'">“'+esc(s.question)+'”</p></div></div>'+
-    '<div class="wrap-md" style="padding:56px 0">'+body+'</div></main>';
+    '<div class="wrap-md" style="padding-top:56px;padding-bottom:56px">'+body+'</div></main>';
 }
 
 function pageThought(id){
@@ -471,7 +471,7 @@ function pageThought(id){
       '<p class="c-col" style="color:'+rs.hex+';margin-bottom:4px">'+esc(rs.title)+'</p>'+
       '<p class="rt">'+esc(r.title)+'</p></a>';
   }).join('');
-  return '<main class="fade article"><div class="wrap-sm" style="padding:56px 0 40px">'+
+  return '<main class="fade article"><div class="wrap-sm" style="padding-top:56px;padding-bottom:40px">'+
     '<a class="uline" href="#/section/'+s.id+'" style="color:'+s.hex+';font-size:12px">← '+esc(s.title)+'</a>'+
     '<div class="dotrow mt6"><span class="dot" style="background:'+s.hex+'"></span>'+
       '<span class="c-col" style="color:'+s.hex+'">'+esc(s.title)+'</span></div>'+
@@ -510,7 +510,7 @@ function pageArchive(){
     }).join('');
     return '<div style="margin-bottom:56px"><h2 class="display mist" style="font-size:32px;margin-bottom:32px">'+y+'</h2>'+months+'</div>';
   }).join('');
-  return '<main class="fade"><div class="wrap-md" style="padding:56px 0 40px">'+
+  return '<main class="fade"><div class="wrap-md" style="padding-top:56px;padding-bottom:40px">'+
     '<p class="eyebrow">The Archive</p>'+
     '<h1 class="h-page">A visual timeline of thinking</h1>'+
     '<p class="lead" style="max-width:34rem">Everything kept, in the order it arrived. Each dot holds its petal colour — over years, the archive becomes a spectrum you can read like a life.</p>'+
@@ -533,7 +533,7 @@ function pageAbout(){
       '<span class="txt"><span class="lt">'+esc(s.title)+'</span>'+
       '<span class="ls">'+esc(s.subtitle)+'</span></span></a>';
   }).join('');
-  return '<main class="fade about"><div class="wrap-sm" style="padding:64px 0 40px">'+
+  return '<main class="fade about"><div class="wrap-sm" style="padding-top:64px;padding-bottom:40px">'+
     '<div class="about-flower">'+flowerMark(80)+'</div>'+
     '<h1>I wanted somewhere to put my thoughts.</h1>'+
     '<div class="body">'+paras+'</div>'+
@@ -542,7 +542,7 @@ function pageAbout(){
 }
 
 function pageNotFound(){
-  return '<main class="fade"><div class="wrap-sm center" style="padding:128px 0">'+
+  return '<main class="fade"><div class="wrap-sm center" style="padding-top:128px;padding-bottom:128px">'+
     '<div style="display:inline-block">'+flowerMark(64)+'</div>'+
     '<h1 class="h-page" style="margin-top:32px">This petal doesn’t exist yet</h1>'+
     '<p class="mist" style="margin-top:16px">The thought you’re looking for isn’t in the archive.</p>'+

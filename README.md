@@ -4,7 +4,7 @@ A personal thought archive. **Seven colours. Seven perspectives. One observer.**
 
 Live at **[spectrum.lifeofakhil.com](https://spectrum.lifeofakhil.com)**
 
-Built and maintained by Akhil C Kuriakose as a long-term legacy project.
+Built and maintained by Akhil C Kuriakose (aided also by Jephin Jose) as a long-term legacy project.
 
 ---
 

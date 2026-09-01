@@ -170,10 +170,12 @@ nav.main a:hover,nav.main a.active{color:var(--ink)}
 .about h1{font-family:var(--display);font-size:48px;text-align:center;line-height:1.1}
 .about .body{margin-top:48px;display:flex;flex-direction:column;gap:24px}
 .about .body p{font-family:var(--serif);font-size:21px;line-height:1.65;color:#2a2a2e}
-.about .legend{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px}
-.about .legend a{display:flex;align-items:center;gap:12px}
+.about .legend{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px}
+.about .legend a{display:flex;align-items:flex-start;gap:12px}
+.about .legend .dot{margin-top:7px}
+.about .legend .txt{display:flex;flex-direction:column;gap:2px}
 .about .legend .lt{font-family:var(--serif);font-size:18px;color:rgba(27,27,29,.9)}
-.about .legend .ls{font-style:italic;color:var(--mist);font-size:14px;margin-left:auto}
+.about .legend .ls{font-style:italic;color:var(--mist);font-size:14px}
 
 /* footer */
 footer.bot{border-top:1px solid var(--hair);margin-top:96px}
@@ -209,7 +211,7 @@ footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
   .h-page{font-size:40px}
 }
 @media (max-width:620px){
-  :root{--gutter:26px}          /* more breathing room on phones */
+  :root{--gutter:34px}          /* generous breathing room on phones */
   nav.main{gap:18px}
   .g3,.g2{grid-template-columns:1fr}
   .related{grid-template-columns:1fr}
@@ -361,7 +363,7 @@ function wireFlowers(scope){
    PARTIALS
    ============================================================ */
 function header(route){
-  var nav=[['Home','/'],['Spectrum','/spectrum'],['Archive','/archive'],['About','/about']];
+  var nav=[['Home','/'],['Archive','/archive'],['About','/about']];
   var active = route.name==='home' ? '/' : '/'+route.name;
   var links=nav.map(function(n){
     var cls='uline'+(active===n[1]?' active':'');
@@ -528,7 +530,8 @@ function pageAbout(){
   ].map(function(p){return '<p>'+esc(p)+'</p>';}).join('');
   var legend=SECTIONS.map(function(s){
     return '<a href="#/section/'+s.id+'"><span class="dot" style="background:'+s.hex+'"></span>'+
-      '<span class="lt">'+esc(s.title)+'</span><span class="ls">'+esc(s.subtitle)+'</span></a>';
+      '<span class="txt"><span class="lt">'+esc(s.title)+'</span>'+
+      '<span class="ls">'+esc(s.subtitle)+'</span></span></a>';
   }).join('');
   return '<main class="fade about"><div class="wrap-sm" style="padding:64px 0 40px">'+
     '<div class="about-flower">'+flowerMark(80)+'</div>'+
@@ -572,7 +575,7 @@ function render(){
   docTitle(r);
   var page;
   switch(r.name){
-    case 'home': page=pageHome(); break;
+    case 'home': page=pageSpectrum(); break;
     case 'spectrum': page=pageSpectrum(); break;
     case 'section': page=pageSection(r.param); break;
     case 'thought': page=pageThought(r.param); break;

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ================= SEO ================= -->
+<title>Spectrum — Seven colours. Seven perspectives. One observer.</title>
+<meta name="description" content="A personal thought archive built around a seven-petal VIBGYOR flower. Seven recurring lenses — The Dark, The Good, Music, Mountains, Movement, Movies and Lifelong Learning — through which one observer interprets the world." />
+<meta name="author" content="The Observer" />
+<meta name="theme-color" content="#fbfbf9" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Spectrum — A Personal Thought Archive" />
+<meta property="og:description" content="Seven colours. Seven perspectives. One observer. A minimalist digital archive of recurring thoughts." />
+<meta property="og:site_name" content="Spectrum" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Spectrum — A Personal Thought Archive" />
+<meta name="twitter:description" content="Seven colours. Seven perspectives. One observer." />
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebSite","name":"Spectrum",
+  "description":"A personal thought archive built around a seven-petal VIBGYOR flower.",
+  "author":{"@type":"Person","name":"The Observer"} }
+</script>
+
+<!-- Google Fonts as PROGRESSIVE ENHANCEMENT only. If blocked by a proxy, the
+     system serif/sans stacks below take over and the site still looks right. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" onerror="void(0)" />
+
+<style>
+/* ============================================================
+   DESIGN TOKENS — restrained VIBGYOR + editorial neutrals
+   ============================================================ */
+:root{
+  --paper:#fbfbf9; --ink:#1b1b1d; --mist:#6b6b70; --hair:#e7e7e4; --faint:#dcdcd6;
+  --violet:#6D5B97; --indigo:#464C8A; --blue:#3A78A8; --green:#4C9377;
+  --yellow:#C69A2E; --orange:#CB7742; --red:#AC4A5A;
+  --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --display:"DM Serif Display", Georgia, "Times New Roman", serif;
+  --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;line-height:1.5;font-weight:400}
+::selection{background:var(--ink);color:var(--paper)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--faint);border-radius:9px}
+
+/* layout */
+.wrap{max-width:1024px;margin:0 auto;padding:0 24px}
+.wrap-md{max-width:820px;margin:0 auto;padding:0 24px}
+.wrap-sm{max-width:680px;margin:0 auto;padding:0 24px}
+.app{min-height:100vh;display:flex;flex-direction:column}
+.grow{flex:1}
+
+/* type helpers */
+.display{font-family:var(--display);font-weight:400;letter-spacing:-.01em;line-height:1.08}
+.serif{font-family:var(--serif)}
+.italic{font-style:italic}
+.mist{color:var(--mist)}
+.eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist)}
+.rule{height:1px;background:var(--hair);border:0}
+
+/* header */
+header.top{position:sticky;top:0;z-index:40;background:rgba(251,251,249,.85);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
+.top .bar{height:64px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .name{font-family:var(--display);font-size:21px;letter-spacing:-.01em}
+nav.main{display:flex;align-items:center;gap:28px}
+nav.main a{font-size:14px;color:var(--mist);position:relative}
+nav.main a:hover,nav.main a.active{color:var(--ink)}
+.uline{background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;
+  background-repeat:no-repeat;background-position:0 100%;transition:background-size .35s ease;
+  padding-bottom:2px}
+.uline:hover{background-size:100% 1px}
+
+/* buttons / links */
+.cta{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--ink)}
+.cta .arw{transition:transform .3s ease;display:inline-block}
+.cta:hover .arw{transform:translateX(5px)}
+
+/* flower */
+.flower{position:relative;user-select:none;max-width:92vw}
+.flower svg{width:100%;height:auto;overflow:visible;display:block}
+.petal{transform-box:view-box;transform-origin:0 0;cursor:pointer;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .45s ease,filter .45s ease;
+  outline:none}
+.flower svg[data-focus] .petal:not(.is-focus){opacity:.28}
+.petal.is-focus{filter:saturate(1.05)}
+.petal:focus-visible{stroke:var(--ink)!important;stroke-width:5}
+.centre{cursor:pointer;transition:transform .4s ease}
+.centre:hover{transform:scale(1.06)}
+.caption{margin-top:22px;text-align:center;min-height:74px}
+.caption .c-col{font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+.caption .c-title{font-family:var(--display);font-size:26px;margin-top:4px}
+.caption .c-sub{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--mist)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  padding:88px 0 40px}
+.hero h1{font-family:var(--display);font-size:60px;line-height:1.05;margin:20px 0 0}
+.hero .lead{color:var(--mist);font-size:18px;line-height:1.7;margin-top:28px;max-width:26rem}
+.hero .flower-col{display:flex;justify-content:center}
+
+/* thought cards grid */
+.grid{display:grid;gap:40px 32px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card .dotrow{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
+.card h3{font-family:var(--serif);font-size:24px;line-height:1.25;color:#26262a;
+  transition:color .3s}
+.card:hover h3{color:var(--ink)}
+.card p.ex{color:var(--mist);font-size:14px;line-height:1.6;margin-top:12px}
+.card .meta{font-size:12px;color:#9a9a9e;margin-top:16px}
+
+/* section header (tinted) */
+.sec-hd{border-bottom:1px solid var(--hair)}
+.sec-hd .inner{padding:64px 0}
+.sec-hd h1{font-family:var(--display);font-size:60px;margin-top:12px;line-height:1.05}
+.sec-hd .sub{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--mist);margin-top:8px}
+.sec-hd .blurb{max-width:36rem;font-size:18px;line-height:1.7;margin-top:24px;color:#3a3a3d}
+.sec-hd .q{margin-top:32px;font-family:var(--serif);font-size:22px}
+
+/* section list entries */
+.entry{display:block;border-bottom:1px solid var(--hair);padding-bottom:40px;margin-bottom:40px}
+.entry .meta{font-size:12px;color:var(--mist);margin-bottom:12px}
+.entry h3{font-family:var(--serif);font-size:30px;line-height:1.25;color:#26262a}
+.entry p{color:var(--mist);line-height:1.65;margin-top:12px;max-width:42rem}
+.entry .read{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:14px}
+.entry .read .arw{transition:transform .3s}
+.entry:hover .read .arw{transform:translateX(5px)}
+
+/* article */
+.article h1{font-family:var(--display);font-size:50px;line-height:1.1;margin-top:16px}
+.article .amet{font-size:14px;color:var(--mist);margin-top:16px}
+.article .body{margin-top:40px;display:flex;flex-direction:column;gap:24px}
+.article .body p{font-family:var(--serif);font-size:21px;line-height:1.65;color:#2a2a2e}
+.stayed{margin-top:48px;padding-left:24px;border-left:2px solid}
+.stayed .lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);margin-bottom:8px}
+.stayed .q{font-family:var(--serif);font-style:italic;font-size:24px;color:#26262a}
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related a p.rt{font-family:var(--serif);font-size:18px;line-height:1.3;color:#2a2a2e}
+
+/* archive */
+.timeline{display:flex;flex-wrap:wrap;gap:6px;margin-top:32px}
+.timeline a{width:14px;height:14px;border-radius:50%;transition:transform .25s}
+.timeline a:hover{transform:scale(1.5)}
+.arow{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--hair);
+  padding-bottom:20px;margin-bottom:20px}
+.arow .dot{transform:translateY(6px)}
+.arow h3{font-family:var(--serif);font-size:24px;line-height:1.25;color:#26262a;flex:1}
+.arow .adate{color:var(--mist);font-size:14px;white-space:nowrap}
+
+/* about */
+.about-flower{display:flex;justify-content:center;margin-bottom:40px}
+.about h1{font-family:var(--display);font-size:48px;text-align:center;line-height:1.1}
+.about .body{margin-top:48px;display:flex;flex-direction:column;gap:24px}
+.about .body p{font-family:var(--serif);font-size:21px;line-height:1.65;color:#2a2a2e}
+.about .legend{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px}
+.about .legend a{display:flex;align-items:center;gap:12px}
+.about .legend .lt{font-family:var(--serif);font-size:18px;color:rgba(27,27,29,.9)}
+.about .legend .ls{font-style:italic;color:var(--mist);font-size:14px;margin-left:auto}
+
+/* footer */
+footer.bot{border-top:1px solid var(--hair);margin-top:96px}
+footer.bot .inner{padding:48px 0;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer.bot .fname{font-family:var(--display);font-size:18px;line-height:1}
+footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
+.fdots{display:flex;gap:6px}
+.fdots a{width:12px;height:12px;border-radius:50%;transition:transform .25s}
+.fdots a:hover{transform:scale(1.25)}
+
+/* utilities */
+.mt6{margin-top:24px}.mt10{margin-top:40px}.mt14{margin-top:56px}
+.section-pad{padding:56px 0}
+.row-between{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
+.center{text-align:center}
+.maxw2{max-width:40rem;margin-left:auto;margin-right:auto}
+
+/* animations */
+.fade{animation:fade .8s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:36px;padding:56px 0 24px}
+  .hero h1{font-size:46px}
+  .g3{grid-template-columns:1fr 1fr}
+  .sec-hd h1{font-size:44px}
+  .article h1{font-size:38px}
+  .about h1{font-size:36px}
+}
+@media (max-width:620px){
+  nav.main{gap:18px}
+  .g3,.g2{grid-template-columns:1fr}
+  .related{grid-template-columns:1fr}
+  .about .legend{grid-template-columns:1fr}
+  .arow .adate{display:none}
+  .hero h1{font-size:40px}
+  .sec-hd h1{font-size:38px}
+}
+</style>
+</head>
+<body>
+<div id="root" class="app">
+  <noscript>
+    <div class="wrap-sm" style="padding-top:60px;font-family:var(--serif)">
+      <h1 class="display" style="font-size:40px">Spectrum</h1>
+      <p style="margin-top:16px">Seven colours. Seven perspectives. One observer. A personal thought archive
+      across seven lenses: The Dark, The Good, Music, Mountains, Movement, Movies and Lifelong Learning.
+      Please enable JavaScript to explore the interactive seven-petal navigation.</p>
+    </div>
+  </noscript>
+</div>
+
+<script>
+/* ============================================================
+   DATA — the seven perspectives (VIBGYOR)
+   ============================================================ */
+var SECTIONS = [
+  {id:'not-so-good',colour:'Violet',hex:'#6D5B97',tint:'#efecf5',title:'Not So Good',
+   subtitle:'What went wrong.',question:'What can we learn from what is broken?',
+   blurb:'Villains, flawed decisions, broken systems and the uncomfortable observations worth sitting with.'},
+  {id:'the-good',colour:'Indigo',hex:'#464C8A',tint:'#eaebf3',title:'The Good',
+   subtitle:'What went right.',question:'What makes someone worth admiring?',
+   blurb:'Heroes, courage, quiet virtue and the people — real or fictional — who set a bar worth reaching for.'},
+  {id:'music',colour:'Blue',hex:'#3A78A8',tint:'#e8f0f6',title:'Music',
+   subtitle:'Songs that stayed.',question:'What moves me?',
+   blurb:'Not reviews. Songs, albums and moments carried for the feeling they left behind.'},
+  {id:'mountains',colour:'Green',hex:'#4C9377',tint:'#e9f2ee',title:'Mountains',
+   subtitle:'Places that put things in perspective.',question:'Where do I go to feel alive?',
+   blurb:'Trails, altitude, weather and solitude — and the thoughts that only arrive above the treeline.'},
+  {id:'movement',colour:'Yellow',hex:'#C69A2E',tint:'#f6f0dd',title:'Movement',
+   subtitle:'Run. Ride. Repeat.',question:'How do I keep moving?',
+   blurb:'Running, cycling, routes and the small clarities found somewhere in the middle of a long effort.'},
+  {id:'movies',colour:'Orange',hex:'#CB7742',tint:'#f7ede4',title:'Movies',
+   subtitle:'Stories that refused to end when the credits rolled.',question:'What stories stay with me?',
+   blurb:'Not a rating machine. Characters, frames and lines that keep returning long after the film ends.'},
+  {id:'learning',colour:'Red',hex:'#AC4A5A',tint:'#f5e7ea',title:'Learning',
+   subtitle:'Still figuring things out.',question:'What am I still trying to understand?',
+   blurb:'Books, science, history, philosophy — new skills, open questions, and things I used to believe.'}
+];
+var byId = {}; SECTIONS.forEach(function(s){ byId[s.id]=s; });
+
+var THOUGHTS = [
+  {id:'047',section:'not-so-good',title:'Why the best villains sometimes make more sense than the heroes',date:'2026-08-28',read:7,
+   excerpt:'A hero who never doubts is just a schedule. A villain who is right about the diagnosis and wrong about the cure is a mirror.',
+   body:['The most durable antagonists are rarely evil for its own sake. They begin with a grievance we quietly recognise — an unfairness, a broken system, a promise the world failed to keep.',
+     'What makes them dangerous is not that they are wrong about the wound. It is that they are wrong about the cure. They mistake demolition for repair.',
+     'Sitting with that discomfort is useful. It forces a harder question than "who is good?" — it asks, "at what point did a reasonable person choose an unreasonable answer?"'],
+   stayed:'The line between a critic and a villain is often just patience.'},
+  {id:'046',section:'the-good',title:'Quiet courage is the kind that never trends',date:'2026-08-21',read:5,
+   excerpt:'We celebrate the loud, decisive kind of bravery. The rarer sort just shows up again tomorrow.',
+   body:['Admiration usually goes to the dramatic gesture — the speech, the sacrifice, the single defining moment.',
+     'But the people I keep coming back to are steadier than that. They are kind when no one is counting. They keep a promise that stopped being convenient months ago.',
+     'Character, it turns out, is less an event than a habit. It compounds silently, and you only notice the interest years later.'],
+   stayed:'Reliability is an underrated form of love.'},
+  {id:'045',section:'music',title:'The song that only works at the exact wrong hour',date:'2026-08-14',read:4,
+   excerpt:'Some tracks are keyed to a specific loneliness. Play them in daylight and they simply refuse to open.',
+   body:['There is a small category of songs that will not perform on command. They need the right hour, the right tiredness, the right window seat.',
+     'Music is stubbornly contextual like that. It is less a thing you listen to than a room you re-enter, furnished with whoever you were the first time.',
+     'Which is why I have stopped rating songs. A number cannot hold a memory.'],
+   stayed:'A song is a bookmark you can hear.'},
+  {id:'044',section:'mountains',title:'Above the treeline the noise finally runs out',date:'2026-07-30',read:6,
+   excerpt:'Altitude has a way of shrinking the arguments you carried up with you.',
+   body:['Somewhere past the last stunted trees the wind takes over and the mental chatter thins to almost nothing.',
+     'Perspective is not a metaphor up there; it is literal. The valley you fretted about is a fold in green, the town a scattering of roofs. The problems did not solve themselves — they simply resized.',
+     'I go to the mountains not to escape my life but to see its actual proportions.'],
+   stayed:'Scale is the cheapest therapy there is.'},
+  {id:'043',section:'movement',title:'The mile where the thinking finally starts',date:'2026-07-18',read:4,
+   excerpt:'The first few kilometres are just negotiation. The clarity is further out than that.',
+   body:['Every run begins as an argument with myself. The legs file complaints, the mind lists reasons to stop.',
+     'Then, somewhere around the fourth kilometre, the noise settles and something else takes over — a steady, wordless rhythm where problems untangle on their own.',
+     'I do not run to think. But the best thinking I do all week happens by accident, at a heart rate I did not plan.'],
+   stayed:'Motion is a solvent for stuck thoughts.'},
+  {id:'042',section:'movies',title:'The frame that outlived the plot',date:'2026-07-05',read:8,
+   excerpt:'I have forgotten how the story resolved. I have not forgotten one wordless shot near the end.',
+   body:['Plot is what a film promises you. Image is what it actually leaves behind.',
+     'Years later the twists blur, the dialogue softens, and yet a single composition survives intact — a face at a window, a colour, a silence held one beat too long.',
+     'That is why a rating misses the point. It measures the machine, not the residue. The real review is what stayed.'],
+   stayed:'A great film is a photograph you cannot stop developing.'},
+  {id:'041',section:'learning',title:'Things I used to believe (and quietly returned)',date:'2026-06-22',read:6,
+   excerpt:'Changing your mind used to feel like losing. Lately it feels like an upgrade.',
+   body:['I once treated my opinions like possessions — things to defend, inventory, insure.',
+     'Now I think of them more like rented rooms. Useful while I live in them, but never the whole building. When a better idea arrives with better evidence, I move.',
+     'This section exists mostly to keep an honest ledger of that: the beliefs I have handed back, and what I traded them for.'],
+   stayed:'A mind worth having is one you are willing to edit.'}
+];
+
+/* ---------- helpers ---------- */
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function fmtDate(iso){return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
+function monthKey(iso){return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{month:'long',year:'numeric'});}
+
+/* ============================================================
+   FLOWER — interactive seven-petal SVG navigation
+   ============================================================ */
+var PETAL='M0,-34 C46,-70 42,-140 0,-176 C-42,-140 -46,-70 0,-34 Z';
+
+function flowerSVG(size){
+  var paths='';
+  for(var i=0;i<SECTIONS.length;i++){
+    var s=SECTIONS[i], a=i*(360/7);
+    paths+='<path class="petal" data-id="'+s.id+'" role="button" tabindex="0" '+
+      'aria-label="'+esc(s.title+' — '+s.subtitle)+'" '+
+      'style="transform:rotate('+a+'deg);fill:'+s.hex+';opacity:.92" '+
+      'stroke="#fbfbf9" stroke-width="3.5" d="'+PETAL+'"></path>';
+  }
+  return '<div class="flower" style="width:'+size+'px">'+
+    '<svg viewBox="-200 -210 400 400" role="img" aria-label="Seven-petal spectrum navigation">'+
+      '<title>Spectrum navigation flower</title>'+paths+
+      '<circle class="centre" cx="0" cy="0" r="35" fill="#fbfbf9" stroke="#e0e0da" '+
+        'stroke-width="1.5" role="button" tabindex="0" aria-label="Return home — the observer"></circle>'+
+      '<circle cx="0" cy="0" r="4.5" fill="#c9c9c2" style="pointer-events:none"></circle>'+
+    '</svg>'+
+    '<div class="caption" data-caption>'+
+      '<p class="eyebrow">The Spectrum</p>'+
+      '<p class="c-sub serif italic" style="margin-top:4px">Hover a petal · click to enter · the centre is home</p>'+
+    '</div>'+
+  '</div>';
+}
+
+/* small inline mark for header/footer/about */
+function flowerMark(size){
+  var paths='';
+  for(var i=0;i<SECTIONS.length;i++){
+    var s=SECTIONS[i];
+    paths+='<path style="transform-box:view-box;transform-origin:0 0;transform:rotate('+(i*(360/7))+'deg);fill:'+s.hex+';opacity:.92" stroke="#fbfbf9" stroke-width="6" d="'+PETAL+'"></path>';
+  }
+  return '<svg viewBox="-200 -200 400 400" width="'+size+'" height="'+size+'" aria-hidden="true" style="overflow:visible;display:block">'+
+    paths+'<circle r="35" fill="#fbfbf9" stroke="#e0e0da" stroke-width="4"></circle></svg>';
+}
+
+/* wire hover/click behaviour onto rendered flowers */
+function wireFlowers(scope){
+  var flowers=scope.querySelectorAll('.flower');
+  flowers.forEach(function(fl){
+    var svg=fl.querySelector('svg');
+    var cap=fl.querySelector('[data-caption]');
+    var petals=fl.querySelectorAll('.petal');
+    var centre=fl.querySelector('.centre');
+    function setFocus(id){
+      if(id){ svg.setAttribute('data-focus','1'); } else { svg.removeAttribute('data-focus'); }
+      petals.forEach(function(p){ p.classList.toggle('is-focus', p.getAttribute('data-id')===id); });
+      if(id){
+        var s=byId[id];
+        cap.innerHTML='<p class="c-col fade" style="color:'+s.hex+'">'+esc(s.colour)+'</p>'+
+          '<p class="c-title">'+esc(s.title)+'</p>'+
+          '<p class="c-sub">'+esc(s.subtitle)+'</p>';
+      } else {
+        cap.innerHTML='<p class="eyebrow">The Spectrum</p>'+
+          '<p class="c-sub serif italic" style="margin-top:4px">Hover a petal · click to enter · the centre is home</p>';
+      }
+    }
+    petals.forEach(function(p){
+      var id=p.getAttribute('data-id');
+      p.addEventListener('mouseenter',function(){setFocus(id);});
+      p.addEventListener('mouseleave',function(){setFocus(null);});
+      p.addEventListener('focus',function(){setFocus(id);});
+      p.addEventListener('blur',function(){setFocus(null);});
+      p.addEventListener('click',function(){go('/section/'+id);});
+      p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go('/section/'+id);}});
+    });
+    if(centre){
+      centre.addEventListener('click',function(){go('/');});
+      centre.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go('/');}});
+    }
+  });
+}
+
+/* ============================================================
+   PARTIALS
+   ============================================================ */
+function header(route){
+  var nav=[['Home','/'],['Spectrum','/spectrum'],['Archive','/archive'],['About','/about']];
+  var active = route.name==='home' ? '/' : '/'+route.name;
+  var links=nav.map(function(n){
+    var cls='uline'+(active===n[1]?' active':'');
+    return '<a class="'+cls+'" href="#'+n[1]+'">'+n[0]+'</a>';
+  }).join('');
+  return '<header class="top"><div class="wrap bar">'+
+    '<a class="brand" href="#/">'+flowerMark(28)+'<span class="name">Spectrum</span></a>'+
+    '<nav class="main">'+links+'</nav></div></header>';
+}
+function footer(){
+  var dots=SECTIONS.map(function(s){
+    return '<a href="#/section/'+s.id+'" title="'+esc(s.title)+'" aria-label="'+esc(s.title)+'" style="background:'+s.hex+'"></a>';
+  }).join('');
+  return '<footer class="bot"><div class="wrap inner">'+
+    '<div class="brand">'+flowerMark(26)+
+      '<div><p class="fname">Spectrum</p><p class="ftag">Seven colours. Seven perspectives. One observer.</p></div></div>'+
+    '<div class="fdots">'+dots+'</div></div></footer>';
+}
+function thoughtCard(t){
+  var s=byId[t.section];
+  return '<a class="card" href="#/thought/'+t.id+'">'+
+    '<div class="dotrow"><span class="dot" style="background:'+s.hex+'"></span>'+
+      '<span class="c-col" style="color:'+s.hex+'">'+esc(s.title)+'</span></div>'+
+    '<h3>'+esc(t.title)+'</h3>'+
+    '<p class="ex">'+esc(t.excerpt)+'</p>'+
+    '<p class="meta">Thought #'+t.id+' · '+fmtDate(t.date)+' · '+t.read+' min</p></a>';
+}
+
+/* ============================================================
+   PAGES
+   ============================================================ */
+function pageHome(){
+  var cards=THOUGHTS.slice(0,6).map(thoughtCard).join('');
+  return '<main class="fade">'+
+    '<section class="wrap"><div class="hero">'+
+      '<div class="rise"><p class="eyebrow">A personal thought archive</p>'+
+        '<h1>Seven colours.<br>Seven perspectives.<br><span class="serif italic">One observer.</span></h1>'+
+        '<p class="lead">Not a blog. Not a portfolio. A quiet map of a mind — the recurring directions my thinking travels, given colours so they can be found again.</p>'+
+        '<div class="mt10" style="display:flex;align-items:center;gap:20px">'+
+          '<a class="cta" href="#/spectrum"><span class="uline">Explore the spectrum</span><span class="arw">→</span></a>'+
+          '<a class="uline mist" href="#/archive">Read the archive</a></div></div>'+
+      '<div class="flower-col rise">'+flowerSVG(420)+'</div>'+
+    '</div></section>'+
+    '<section class="wrap section-pad"><div class="row-between">'+
+      '<h2 class="display" style="font-size:32px">Recently returned</h2>'+
+      '<a class="uline mist" href="#/archive" style="font-size:14px">All thoughts →</a></div>'+
+      '<div class="grid g3">'+cards+'</div></section>'+
+  '</main>';
+}
+
+function pageSpectrum(){
+  var list=SECTIONS.map(function(s){
+    return '<a class="card" href="#/section/'+s.id+'" style="display:flex;gap:16px">'+
+      '<span class="dot" style="width:14px;height:14px;background:'+s.hex+';margin-top:6px"></span>'+
+      '<div><div style="display:flex;align-items:baseline;gap:12px">'+
+        '<h3 class="display" style="font-size:24px;font-family:var(--display)">'+esc(s.title)+'</h3>'+
+        '<span class="eyebrow">'+esc(s.colour)+'</span></div>'+
+        '<p class="c-sub" style="font-family:var(--serif);font-style:italic;color:var(--mist);font-size:19px">'+esc(s.subtitle)+'</p>'+
+        '<p class="ex" style="margin-top:6px">'+esc(s.blurb)+'</p></div></a>';
+  }).join('');
+  return '<main class="fade"><div class="wrap" style="padding:56px 0 40px">'+
+    '<div class="center maxw2"><p class="eyebrow">The Spectrum</p>'+
+      '<h1 class="display" style="font-size:48px;margin-top:16px">Seven lenses, one flower</h1>'+
+      '<p class="lead" style="max-width:none;margin:20px auto 0">Each petal is a recurring direction my thoughts travel. Hover to learn it, click to enter it. The white centre is always the way home.</p></div>'+
+    '<div style="display:flex;justify-content:center;margin:48px 0">'+flowerSVG(480)+'</div>'+
+    '<hr class="rule mt10" style="margin-bottom:40px">'+
+    '<div class="grid g2">'+list+'</div></div></main>';
+}
+
+function pageSection(id){
+  var s=byId[id]; if(!s) return pageNotFound();
+  var items=THOUGHTS.filter(function(t){return t.section===id;});
+  var body;
+  if(items.length){
+    body=items.map(function(t){
+      return '<a class="entry" href="#/thought/'+t.id+'">'+
+        '<p class="meta">Thought #'+t.id+' · '+fmtDate(t.date)+' · '+t.read+' min</p>'+
+        '<h3>'+esc(t.title)+'</h3><p>'+esc(t.excerpt)+'</p>'+
+        '<span class="read" style="color:'+s.hex+'">Read <span class="arw">→</span></span></a>';
+    }).join('');
+  } else {
+    body='<p class="serif italic mist" style="font-size:20px">This petal is still opening. Thoughts will gather here.</p>';
+  }
+  return '<main class="fade">'+
+    '<div class="sec-hd" style="background:'+s.tint+'"><div class="wrap-md inner">'+
+      '<a class="uline mist" href="#/spectrum" style="font-size:12px">← Spectrum</a>'+
+      '<div class="dotrow mt6"><span class="dot" style="background:'+s.hex+'"></span>'+
+        '<span class="c-col" style="color:'+s.hex+'">'+esc(s.colour)+'</span></div>'+
+      '<h1>'+esc(s.title)+'</h1><p class="sub">'+esc(s.subtitle)+'</p>'+
+      '<p class="blurb">'+esc(s.blurb)+'</p>'+
+      '<p class="q" style="color:'+s.hex+'">“'+esc(s.question)+'”</p></div></div>'+
+    '<div class="wrap-md" style="padding:56px 0">'+body+'</div></main>';
+}
+
+function pageThought(id){
+  var t=null; THOUGHTS.forEach(function(x){if(x.id===id)t=x;});
+  if(!t) return pageNotFound();
+  var s=byId[t.section];
+  var paras=t.body.map(function(p){return '<p>'+esc(p)+'</p>';}).join('');
+  var related=THOUGHTS.filter(function(x){return x.id!==t.id;}).slice(0,3).map(function(r){
+    var rs=byId[r.section];
+    return '<a href="#/thought/'+r.id+'"><span class="dot" style="background:'+rs.hex+';margin-bottom:8px"></span>'+
+      '<p class="c-col" style="color:'+rs.hex+';margin-bottom:4px">'+esc(rs.title)+'</p>'+
+      '<p class="rt">'+esc(r.title)+'</p></a>';
+  }).join('');
+  return '<main class="fade article"><div class="wrap-sm" style="padding:56px 0 40px">'+
+    '<a class="uline" href="#/section/'+s.id+'" style="color:'+s.hex+';font-size:12px">← '+esc(s.title)+'</a>'+
+    '<div class="dotrow mt6"><span class="dot" style="background:'+s.hex+'"></span>'+
+      '<span class="c-col" style="color:'+s.hex+'">'+esc(s.title)+'</span></div>'+
+    '<h1>'+esc(t.title)+'</h1>'+
+    '<p class="amet">Thought #'+t.id+' · '+fmtDate(t.date)+' · '+t.read+' min read</p>'+
+    '<div class="body">'+paras+'</div>'+
+    '<div class="stayed" style="border-color:'+s.hex+'"><p class="lbl">What stayed with me</p>'+
+      '<p class="q">'+esc(t.stayed)+'</p></div>'+
+    '<hr class="rule mt14" style="margin-bottom:40px">'+
+    '<p class="eyebrow" style="margin-bottom:24px">Explore another perspective</p>'+
+    '<div class="related">'+related+'</div></div></main>';
+}
+
+function pageArchive(){
+  var sorted=THOUGHTS.slice().sort(function(a,b){return b.date.localeCompare(a.date);});
+  var groups={};
+  sorted.forEach(function(t){
+    var y=t.date.slice(0,4), m=monthKey(t.date);
+    groups[y]=groups[y]||{}; groups[y][m]=groups[y][m]||[]; groups[y][m].push(t);
+  });
+  var strip=THOUGHTS.slice().sort(function(a,b){return a.date.localeCompare(b.date);}).map(function(t){
+    return '<a href="#/thought/'+t.id+'" title="'+esc(t.title)+'" style="background:'+byId[t.section].hex+'"></a>';
+  }).join('');
+  var years=Object.keys(groups).sort(function(a,b){return b.localeCompare(a);});
+  var out=years.map(function(y){
+    var months=Object.keys(groups[y]).map(function(m){
+      var rows=groups[y][m].map(function(t){
+        var s=byId[t.section];
+        return '<a class="arow" href="#/thought/'+t.id+'">'+
+          '<span class="dot" style="background:'+s.hex+'"></span>'+
+          '<div style="flex:1"><h3>'+esc(t.title)+'</h3>'+
+            '<p class="meta" style="font-size:12px;color:var(--mist);margin-top:4px">'+esc(s.title)+' · Thought #'+t.id+' · '+t.read+' min</p></div>'+
+          '<span class="adate">'+fmtDate(t.date)+'</span></a>';
+      }).join('');
+      return '<div style="margin-bottom:40px"><p class="eyebrow" style="margin-bottom:20px">'+esc(m)+'</p>'+rows+'</div>';
+    }).join('');
+    return '<div style="margin-bottom:56px"><h2 class="display mist" style="font-size:32px;margin-bottom:32px">'+y+'</h2>'+months+'</div>';
+  }).join('');
+  return '<main class="fade"><div class="wrap-md" style="padding:56px 0 40px">'+
+    '<p class="eyebrow">The Archive</p>'+
+    '<h1 class="display" style="font-size:48px;margin-top:16px">A visual timeline of thinking</h1>'+
+    '<p class="lead" style="max-width:34rem">Everything kept, in the order it arrived. Each dot holds its petal colour — over years, the archive becomes a spectrum you can read like a life.</p>'+
+    '<div class="timeline">'+strip+'</div>'+
+    '<hr class="rule" style="margin:48px 0">'+out+'</div></main>';
+}
+
+function pageAbout(){
+  var paras=[
+    'Not necessarily the thoughts that fit neatly into a category — but the ones that keep returning.',
+    'Some come from stories. Some from music. Some from mountains. Some arrive while running. Some come from the things I admire, and others from the things I don’t.',
+    'Eventually I realised there were seven recurring directions. So I gave them colours.',
+    'The white centre is deliberately empty. It is the observer, the blank page, the space every perspective radiates from. Seven petals. One self.',
+    'This is not a résumé and not a feed. It is a map of a mind — built to grow for years, and, slowly, to become a record of how a way of looking changes with time.'
+  ].map(function(p){return '<p>'+esc(p)+'</p>';}).join('');
+  var legend=SECTIONS.map(function(s){
+    return '<a href="#/section/'+s.id+'"><span class="dot" style="background:'+s.hex+'"></span>'+
+      '<span class="lt">'+esc(s.title)+'</span><span class="ls">'+esc(s.subtitle)+'</span></a>';
+  }).join('');
+  return '<main class="fade about"><div class="wrap-sm" style="padding:64px 0 40px">'+
+    '<div class="about-flower">'+flowerMark(80)+'</div>'+
+    '<h1>I wanted somewhere to put my thoughts.</h1>'+
+    '<div class="body">'+paras+'</div>'+
+    '<hr class="rule mt14" style="margin-bottom:40px">'+
+    '<div class="legend">'+legend+'</div></div></main>';
+}
+
+function pageNotFound(){
+  return '<main class="fade"><div class="wrap-sm center" style="padding:128px 0">'+
+    '<div style="display:inline-block">'+flowerMark(64)+'</div>'+
+    '<h1 class="display" style="font-size:40px;margin-top:32px">This petal doesn’t exist yet</h1>'+
+    '<p class="mist" style="margin-top:16px">The thought you’re looking for isn’t in the archive.</p>'+
+    '<a class="uline" href="#/" style="display:inline-block;margin-top:32px">Return to the centre →</a></div></main>';
+}
+
+/* ============================================================
+   ROUTER
+   ============================================================ */
+function parseHash(){
+  var raw=location.hash.replace(/^#\/?/,'');
+  if(!raw) return {name:'home'};
+  var parts=raw.split('/');
+  return {name:parts[0], param:parts[1]};
+}
+function go(path){ location.hash=path; }
+
+function docTitle(r){
+  var t='Spectrum — Seven colours. Seven perspectives. One observer.';
+  if(r.name==='section'&&byId[r.param]) t=byId[r.param].title+' — Spectrum';
+  else if(r.name==='thought'){ var th=null;THOUGHTS.forEach(function(x){if(x.id===r.param)th=x;}); if(th)t=th.title+' — Spectrum'; }
+  else if(r.name==='spectrum') t='The Spectrum — Spectrum';
+  else if(r.name==='archive') t='Archive — Spectrum';
+  else if(r.name==='about') t='About — Spectrum';
+  document.title=t;
+}
+
+function render(){
+  var r=parseHash();
+  docTitle(r);
+  var page;
+  switch(r.name){
+    case 'home': page=pageHome(); break;
+    case 'spectrum': page=pageSpectrum(); break;
+    case 'section': page=pageSection(r.param); break;
+    case 'thought': page=pageThought(r.param); break;
+    case 'archive': page=pageArchive(); break;
+    case 'about': page=pageAbout(); break;
+    default: page=pageNotFound();
+  }
+  var root=document.getElementById('root');
+  root.innerHTML=header(r)+'<div class="grow">'+page+'</div>'+footer();
+  wireFlowers(root);
+  window.scrollTo(0,0);
+}
+
+window.addEventListener('hashchange',render);
+render();
+</script>
+</body>
+</html>

@@ -7,22 +7,25 @@
 <!-- ================= SEO ================= -->
 <title>Spectrum — Seven colours. Seven perspectives. One observer.</title>
 <meta name="description" content="A personal thought archive built around a seven-petal VIBGYOR flower. Seven recurring lenses — The Dark, The Good, Music, Mountains, Movement, Movies and Lifelong Learning — through which one observer interprets the world." />
-<meta name="author" content="The Observer" />
+<meta name="author" content="Akhil C Kuriakose" />
 <meta name="theme-color" content="#fbfbf9" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Spectrum — A Personal Thought Archive" />
 <meta property="og:description" content="Seven colours. Seven perspectives. One observer. A minimalist digital archive of recurring thoughts." />
 <meta property="og:site_name" content="Spectrum" />
+<meta property="og:url" content="https://spectrum.lifeofakhil.com/" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Spectrum — A Personal Thought Archive" />
 <meta name="twitter:description" content="Seven colours. Seven perspectives. One observer." />
+<link rel="canonical" href="https://spectrum.lifeofakhil.com/" />
 <script type="application/ld+json">
 { "@context":"https://schema.org","@type":"WebSite","name":"Spectrum",
   "description":"A personal thought archive built around a seven-petal VIBGYOR flower.",
-  "author":{"@type":"Person","name":"The Observer"} }
+  "url":"https://spectrum.lifeofakhil.com/",
+  "author":{"@type":"Person","name":"Akhil C Kuriakose"} }
 </script>
 
-<!-- Google Fonts as PROGRESSIVE ENHANCEMENT only. If blocked by a proxy, the
+<!-- Google Fonts as PROGRESSIVE ENHANCEMENT only. If blocked, the
      system serif/sans stacks below take over and the site still looks right. -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" onerror="void(0)" />
@@ -38,21 +41,25 @@
   --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif;
   --display:"DM Serif Display", Georgia, "Times New Roman", serif;
   --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --gutter:24px;               /* side margin — widened on mobile below */
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:var(--sans);
-  -webkit-font-smoothing:antialiased;line-height:1.5;font-weight:400}
+  -webkit-font-smoothing:antialiased;line-height:1.5;font-weight:400;
+  overflow-x:hidden;}                       /* never allow sideways scroll */
 ::selection{background:var(--ink);color:var(--paper)}
 a{color:inherit;text-decoration:none}
 img{max-width:100%}
+/* long words (titles) wrap instead of pushing past the screen edge */
+h1,h2,h3,p{overflow-wrap:break-word;word-break:break-word}
 ::-webkit-scrollbar{width:9px;height:9px}
 ::-webkit-scrollbar-thumb{background:var(--faint);border-radius:9px}
 
-/* layout */
-.wrap{max-width:1024px;margin:0 auto;padding:0 24px}
-.wrap-md{max-width:820px;margin:0 auto;padding:0 24px}
-.wrap-sm{max-width:680px;margin:0 auto;padding:0 24px}
+/* layout — all use the shared --gutter so mobile spacing is consistent */
+.wrap{max-width:1024px;margin:0 auto;padding:0 var(--gutter)}
+.wrap-md{max-width:820px;margin:0 auto;padding:0 var(--gutter)}
+.wrap-sm{max-width:680px;margin:0 auto;padding:0 var(--gutter)}
 .app{min-height:100vh;display:flex;flex-direction:column}
 .grow{flex:1}
 
@@ -63,6 +70,8 @@ img{max-width:100%}
 .mist{color:var(--mist)}
 .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist)}
 .rule{height:1px;background:var(--hair);border:0}
+/* responsive page-title used by Spectrum / Archive / NotFound */
+.h-page{font-family:var(--display);font-size:48px;line-height:1.05;margin-top:16px}
 
 /* header */
 header.top{position:sticky;top:0;z-index:40;background:rgba(251,251,249,.85);
@@ -84,7 +93,7 @@ nav.main a:hover,nav.main a.active{color:var(--ink)}
 .cta:hover .arw{transform:translateX(5px)}
 
 /* flower */
-.flower{position:relative;user-select:none;max-width:92vw}
+.flower{position:relative;user-select:none;max-width:88vw}
 .flower svg{width:100%;height:auto;overflow:visible;display:block}
 .petal{transform-box:view-box;transform-origin:0 0;cursor:pointer;
   transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .45s ease,filter .45s ease;
@@ -196,16 +205,26 @@ footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
   .g3{grid-template-columns:1fr 1fr}
   .sec-hd h1{font-size:44px}
   .article h1{font-size:38px}
-  .about h1{font-size:36px}
+  .about h1{font-size:40px}
+  .h-page{font-size:40px}
 }
 @media (max-width:620px){
+  :root{--gutter:26px}          /* more breathing room on phones */
   nav.main{gap:18px}
   .g3,.g2{grid-template-columns:1fr}
   .related{grid-template-columns:1fr}
   .about .legend{grid-template-columns:1fr}
   .arow .adate{display:none}
-  .hero h1{font-size:40px}
-  .sec-hd h1{font-size:38px}
+  .hero{padding:40px 0 16px}
+  .hero h1{font-size:38px}
+  .sec-hd .inner{padding:48px 0}
+  .sec-hd h1{font-size:34px}
+  .sec-hd .sub{font-size:22px}
+  .article h1{font-size:32px}
+  .article .body p{font-size:20px}
+  .about h1{font-size:32px}
+  .h-page{font-size:32px}
+  .caption .c-title{font-size:23px}
 }
 </style>
 </head>
@@ -221,9 +240,15 @@ footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
   </noscript>
 </div>
 
+<!-- ============================================================
+     YOUR CONTENT lives in thoughts.js (loaded first, below).
+     To add a thought, edit thoughts.js only — never this file.
+     ============================================================ -->
+<script src="thoughts.js"></script>
+
 <script>
 /* ============================================================
-   DATA — the seven perspectives (VIBGYOR)
+   SECTIONS — the seven fixed petals (rarely change)
    ============================================================ */
 var SECTIONS = [
   {id:'not-so-good',colour:'Violet',hex:'#6D5B97',tint:'#efecf5',title:'Not So Good',
@@ -250,50 +275,8 @@ var SECTIONS = [
 ];
 var byId = {}; SECTIONS.forEach(function(s){ byId[s.id]=s; });
 
-var THOUGHTS = [
-  {id:'047',section:'not-so-good',title:'Why the best villains sometimes make more sense than the heroes',date:'2026-08-28',read:7,
-   excerpt:'A hero who never doubts is just a schedule. A villain who is right about the diagnosis and wrong about the cure is a mirror.',
-   body:['The most durable antagonists are rarely evil for its own sake. They begin with a grievance we quietly recognise — an unfairness, a broken system, a promise the world failed to keep.',
-     'What makes them dangerous is not that they are wrong about the wound. It is that they are wrong about the cure. They mistake demolition for repair.',
-     'Sitting with that discomfort is useful. It forces a harder question than "who is good?" — it asks, "at what point did a reasonable person choose an unreasonable answer?"'],
-   stayed:'The line between a critic and a villain is often just patience.'},
-  {id:'046',section:'the-good',title:'Quiet courage is the kind that never trends',date:'2026-08-21',read:5,
-   excerpt:'We celebrate the loud, decisive kind of bravery. The rarer sort just shows up again tomorrow.',
-   body:['Admiration usually goes to the dramatic gesture — the speech, the sacrifice, the single defining moment.',
-     'But the people I keep coming back to are steadier than that. They are kind when no one is counting. They keep a promise that stopped being convenient months ago.',
-     'Character, it turns out, is less an event than a habit. It compounds silently, and you only notice the interest years later.'],
-   stayed:'Reliability is an underrated form of love.'},
-  {id:'045',section:'music',title:'The song that only works at the exact wrong hour',date:'2026-08-14',read:4,
-   excerpt:'Some tracks are keyed to a specific loneliness. Play them in daylight and they simply refuse to open.',
-   body:['There is a small category of songs that will not perform on command. They need the right hour, the right tiredness, the right window seat.',
-     'Music is stubbornly contextual like that. It is less a thing you listen to than a room you re-enter, furnished with whoever you were the first time.',
-     'Which is why I have stopped rating songs. A number cannot hold a memory.'],
-   stayed:'A song is a bookmark you can hear.'},
-  {id:'044',section:'mountains',title:'Above the treeline the noise finally runs out',date:'2026-07-30',read:6,
-   excerpt:'Altitude has a way of shrinking the arguments you carried up with you.',
-   body:['Somewhere past the last stunted trees the wind takes over and the mental chatter thins to almost nothing.',
-     'Perspective is not a metaphor up there; it is literal. The valley you fretted about is a fold in green, the town a scattering of roofs. The problems did not solve themselves — they simply resized.',
-     'I go to the mountains not to escape my life but to see its actual proportions.'],
-   stayed:'Scale is the cheapest therapy there is.'},
-  {id:'043',section:'movement',title:'The mile where the thinking finally starts',date:'2026-07-18',read:4,
-   excerpt:'The first few kilometres are just negotiation. The clarity is further out than that.',
-   body:['Every run begins as an argument with myself. The legs file complaints, the mind lists reasons to stop.',
-     'Then, somewhere around the fourth kilometre, the noise settles and something else takes over — a steady, wordless rhythm where problems untangle on their own.',
-     'I do not run to think. But the best thinking I do all week happens by accident, at a heart rate I did not plan.'],
-   stayed:'Motion is a solvent for stuck thoughts.'},
-  {id:'042',section:'movies',title:'The frame that outlived the plot',date:'2026-07-05',read:8,
-   excerpt:'I have forgotten how the story resolved. I have not forgotten one wordless shot near the end.',
-   body:['Plot is what a film promises you. Image is what it actually leaves behind.',
-     'Years later the twists blur, the dialogue softens, and yet a single composition survives intact — a face at a window, a colour, a silence held one beat too long.',
-     'That is why a rating misses the point. It measures the machine, not the residue. The real review is what stayed.'],
-   stayed:'A great film is a photograph you cannot stop developing.'},
-  {id:'041',section:'learning',title:'Things I used to believe (and quietly returned)',date:'2026-06-22',read:6,
-   excerpt:'Changing your mind used to feel like losing. Lately it feels like an upgrade.',
-   body:['I once treated my opinions like possessions — things to defend, inventory, insure.',
-     'Now I think of them more like rented rooms. Useful while I live in them, but never the whole building. When a better idea arrives with better evidence, I move.',
-     'This section exists mostly to keep an honest ledger of that: the beliefs I have handed back, and what I traded them for.'],
-   stayed:'A mind worth having is one you are willing to edit.'}
-];
+/* safety net: if thoughts.js is missing or empty, don't crash */
+if (typeof THOUGHTS === 'undefined' || !Array.isArray(THOUGHTS)) { var THOUGHTS = []; }
 
 /* ---------- helpers ---------- */
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
@@ -328,7 +311,6 @@ function flowerSVG(size){
   '</div>';
 }
 
-/* small inline mark for header/footer/about */
 function flowerMark(size){
   var paths='';
   for(var i=0;i<SECTIONS.length;i++){
@@ -339,7 +321,6 @@ function flowerMark(size){
     paths+'<circle r="35" fill="#fbfbf9" stroke="#e0e0da" stroke-width="4"></circle></svg>';
 }
 
-/* wire hover/click behaviour onto rendered flowers */
 function wireFlowers(scope){
   var flowers=scope.querySelectorAll('.flower');
   flowers.forEach(function(fl){
@@ -413,7 +394,8 @@ function thoughtCard(t){
    PAGES
    ============================================================ */
 function pageHome(){
-  var cards=THOUGHTS.slice(0,6).map(thoughtCard).join('');
+  var recent=THOUGHTS.slice().sort(function(a,b){return b.date.localeCompare(a.date);}).slice(0,6);
+  var cards=recent.map(thoughtCard).join('');
   return '<main class="fade">'+
     '<section class="wrap"><div class="hero">'+
       '<div class="rise"><p class="eyebrow">A personal thought archive</p>'+
@@ -424,10 +406,10 @@ function pageHome(){
           '<a class="uline mist" href="#/archive">Read the archive</a></div></div>'+
       '<div class="flower-col rise">'+flowerSVG(420)+'</div>'+
     '</div></section>'+
-    '<section class="wrap section-pad"><div class="row-between">'+
+    (cards ? '<section class="wrap section-pad"><div class="row-between">'+
       '<h2 class="display" style="font-size:32px">Recently returned</h2>'+
       '<a class="uline mist" href="#/archive" style="font-size:14px">All thoughts →</a></div>'+
-      '<div class="grid g3">'+cards+'</div></section>'+
+      '<div class="grid g3">'+cards+'</div></section>' : '')+
   '</main>';
 }
 
@@ -443,7 +425,7 @@ function pageSpectrum(){
   }).join('');
   return '<main class="fade"><div class="wrap" style="padding:56px 0 40px">'+
     '<div class="center maxw2"><p class="eyebrow">The Spectrum</p>'+
-      '<h1 class="display" style="font-size:48px;margin-top:16px">Seven lenses, one flower</h1>'+
+      '<h1 class="h-page">Seven lenses, one flower</h1>'+
       '<p class="lead" style="max-width:none;margin:20px auto 0">Each petal is a recurring direction my thoughts travel. Hover to learn it, click to enter it. The white centre is always the way home.</p></div>'+
     '<div style="display:flex;justify-content:center;margin:48px 0">'+flowerSVG(480)+'</div>'+
     '<hr class="rule mt10" style="margin-bottom:40px">'+
@@ -452,7 +434,8 @@ function pageSpectrum(){
 
 function pageSection(id){
   var s=byId[id]; if(!s) return pageNotFound();
-  var items=THOUGHTS.filter(function(t){return t.section===id;});
+  var items=THOUGHTS.filter(function(t){return t.section===id;})
+                    .sort(function(a,b){return b.date.localeCompare(a.date);});
   var body;
   if(items.length){
     body=items.map(function(t){
@@ -527,10 +510,12 @@ function pageArchive(){
   }).join('');
   return '<main class="fade"><div class="wrap-md" style="padding:56px 0 40px">'+
     '<p class="eyebrow">The Archive</p>'+
-    '<h1 class="display" style="font-size:48px;margin-top:16px">A visual timeline of thinking</h1>'+
+    '<h1 class="h-page">A visual timeline of thinking</h1>'+
     '<p class="lead" style="max-width:34rem">Everything kept, in the order it arrived. Each dot holds its petal colour — over years, the archive becomes a spectrum you can read like a life.</p>'+
-    '<div class="timeline">'+strip+'</div>'+
-    '<hr class="rule" style="margin:48px 0">'+out+'</div></main>';
+    (strip ? '<div class="timeline">'+strip+'</div>' : '')+
+    '<hr class="rule" style="margin:48px 0">'+
+    (out || '<p class="serif italic mist" style="font-size:20px">The archive is waiting for its first thought.</p>')+
+    '</div></main>';
 }
 
 function pageAbout(){
@@ -556,7 +541,7 @@ function pageAbout(){
 function pageNotFound(){
   return '<main class="fade"><div class="wrap-sm center" style="padding:128px 0">'+
     '<div style="display:inline-block">'+flowerMark(64)+'</div>'+
-    '<h1 class="display" style="font-size:40px;margin-top:32px">This petal doesn’t exist yet</h1>'+
+    '<h1 class="h-page" style="margin-top:32px">This petal doesn’t exist yet</h1>'+
     '<p class="mist" style="margin-top:16px">The thought you’re looking for isn’t in the archive.</p>'+
     '<a class="uline" href="#/" style="display:inline-block;margin-top:32px">Return to the centre →</a></div></main>';
 }

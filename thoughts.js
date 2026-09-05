@@ -55,8 +55,12 @@ var THOUGHTS = [
 
     'Knowledge undoubtedly deepens the experience. But beauty often arrives before understanding.',
      
-     'Image reference: https://spectrum.lifeofakhil.com/media/Songs_05-09-26.png',
-
+     {   
+      type: 'image',
+      src: 'media/Songs_05-09-26.png',
+      caption: 'Seven songs. Seven classical roots.'
+     },
+     
     'A listener doesn’t need to know Megh Malhar to enjoy Garaj Garaj. One doesn’t need to recognise Kalyani to be moved by Devanganangal. One may not even know that there exists a Carnatic ragam called Gowrimanohari and still not miss the beauty in Paattum Naane.',
 
     'Complex, yet beautiful.',

@@ -54,6 +54,8 @@ var THOUGHTS = [
     'There is a tendency to assume that appreciating something requires understanding everything about it. Music quietly disagrees.',
 
     'Knowledge undoubtedly deepens the experience. But beauty often arrives before understanding.',
+     
+     'Image reference: https://spectrum.lifeofakhil.com/media/Songs_05-09-26.png',
 
     'A listener doesn’t need to know Megh Malhar to enjoy Garaj Garaj. One doesn’t need to recognise Kalyani to be moved by Devanganangal. One may not even know that there exists a Carnatic ragam called Gowrimanohari and still not miss the beauty in Paattum Naane.',
 

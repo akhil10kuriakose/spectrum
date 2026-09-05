@@ -149,6 +149,8 @@ nav.main a:hover,nav.main a.active{color:var(--ink)}
 .article .amet{font-size:14px;color:var(--mist);margin-top:16px}
 .article .body{margin-top:40px;display:flex;flex-direction:column;gap:24px}
 .article .body p{font-family:var(--serif);font-size:21px;line-height:1.65;color:#2a2a2e}
+.article .body figure{margin:8px 0}
+.article .body figure img{width:100%;border-radius:8px;display:block}
 .stayed{margin-top:48px;padding-left:24px;border-left:2px solid}
 .stayed .lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);margin-bottom:8px}
 .stayed .q{font-family:var(--serif);font-style:italic;font-size:24px;color:#26262a}
@@ -395,6 +397,46 @@ function thoughtCard(t){
 }
 
 /* ============================================================
+   ARTICLE BODY RENDERER
+   Handles plain paragraphs (strings) AND media blocks (objects).
+   A media block looks like:
+     { type:'image', src:'media/pic.png', caption:'optional caption' }
+   ============================================================ */
+function renderBlock(p){
+  /* media block (object) */
+  if(p && typeof p === 'object'){
+    if(p.type === 'image'){
+      return '<figure>'+
+        '<img src="'+esc(p.src)+'" alt="'+esc(p.caption||'')+'">'+
+        (p.caption
+          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+esc(p.caption)+'</figcaption>'
+          : '')+
+      '</figure>';
+    }
+    if(p.type === 'audio'){
+      return '<figure>'+
+        '<audio controls src="'+esc(p.src)+'" style="width:100%"></audio>'+
+        (p.caption
+          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+esc(p.caption)+'</figcaption>'
+          : '')+
+      '</figure>';
+    }
+    if(p.type === 'video'){
+      return '<figure>'+
+        '<video controls src="'+esc(p.src)+'" style="width:100%;border-radius:8px;display:block"></video>'+
+        (p.caption
+          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+esc(p.caption)+'</figcaption>'
+          : '')+
+      '</figure>';
+    }
+    /* unknown object type — ignore safely */
+    return '';
+  }
+  /* plain paragraph (string) */
+  return '<p>'+esc(p)+'</p>';
+}
+
+/* ============================================================
    PAGES
    ============================================================ */
 function pageHome(){
@@ -466,7 +508,7 @@ function pageThought(id){
   var t=null; THOUGHTS.forEach(function(x){if(x.id===id)t=x;});
   if(!t) return pageNotFound();
   var s=byId[t.section];
-  var paras=t.body.map(function(p){return '<p>'+esc(p)+'</p>';}).join('');
+  var paras=t.body.map(renderBlock).join('');
   var related=THOUGHTS.filter(function(x){return x.id!==t.id;}).slice(0,3).map(function(r){
     var rs=byId[r.section];
     return '<a href="#/thought/'+r.id+'"><span class="dot" style="background:'+rs.hex+';margin-bottom:8px"></span>'+

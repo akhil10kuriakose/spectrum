@@ -170,20 +170,6 @@ var THOUGHTS = [
     stayed: 'Reliability is an underrated form of love.'
   },
   {
-    id: '045',
-    section: 'music',
-    title: 'The song that only works at the exact wrong hour',
-    date: '2026-08-14',
-    read: 4,
-    excerpt: 'Some tracks are keyed to a specific loneliness. Play them in daylight and they simply refuse to open.',
-    body: [
-      'There is a small category of songs that will not perform on command. They need the right hour, the right tiredness, the right window seat.',
-      'Music is stubbornly contextual like that. It is less a thing you listen to than a room you re-enter, furnished with whoever you were the first time.',
-      'Which is why I have stopped rating songs. A number cannot hold a memory.'
-    ],
-    stayed: 'A song is a bookmark you can hear.'
-  },
-  {
     id: '044',
     section: 'mountains',
     title: 'Above the treeline the noise finally runs out',
@@ -210,20 +196,6 @@ var THOUGHTS = [
       'I do not run to think. But the best thinking I do all week happens by accident, at a heart rate I did not plan.'
     ],
     stayed: 'Motion is a solvent for stuck thoughts.'
-  },
-  {
-    id: '042',
-    section: 'movies',
-    title: 'The frame that outlived the plot',
-    date: '2026-07-05',
-    read: 8,
-    excerpt: 'I have forgotten how the story resolved. I have not forgotten one wordless shot near the end.',
-    body: [
-      'Plot is what a film promises you. Image is what it actually leaves behind.',
-      'Years later the twists blur, the dialogue softens, and yet a single composition survives intact — a face at a window, a colour, a silence held one beat too long.',
-      'That is why a rating misses the point. It measures the machine, not the residue. The real review is what stayed.'
-    ],
-    stayed: 'A great film is a photograph you cannot stop developing.'
   },
   {
     id: '041',

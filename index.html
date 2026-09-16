@@ -285,7 +285,15 @@ var byId = {}; SECTIONS.forEach(function(s){ byId[s.id]=s; });
 if (typeof THOUGHTS === 'undefined' || !Array.isArray(THOUGHTS)) { var THOUGHTS = []; }
 
 /* ---------- helpers ---------- */
+
+/* esc() — makes text safe to display (used for titles, alt text, tab title) */
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+/* fmt() — same safety, PLUS simple italics.
+   Write *like this* in thoughts.js and it renders in italics.
+   HTML is escaped first, so this stays completely safe.        */
+function fmt(s){ return esc(s).replace(/\*([^*]+)\*/g,'<em>$1</em>'); }
+
 function fmtDate(iso){return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 function monthKey(iso){return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{month:'long',year:'numeric'});}
 
@@ -391,8 +399,8 @@ function thoughtCard(t){
   return '<a class="card" href="#/thought/'+t.id+'">'+
     '<div class="dotrow"><span class="dot" style="background:'+s.hex+'"></span>'+
       '<span class="c-col" style="color:'+s.hex+'">'+esc(s.title)+'</span></div>'+
-    '<h3>'+esc(t.title)+'</h3>'+
-    '<p class="ex">'+esc(t.excerpt)+'</p>'+
+    '<h3>'+fmt(t.title)+'</h3>'+
+    '<p class="ex">'+fmt(t.excerpt)+'</p>'+
     '<p class="meta">Thought #'+t.id+' · '+fmtDate(t.date)+' · '+t.read+' min</p></a>';
 }
 
@@ -401,6 +409,7 @@ function thoughtCard(t){
    Handles plain paragraphs (strings) AND media blocks (objects).
    A media block looks like:
      { type:'image', src:'media/pic.png', caption:'optional caption' }
+   Text supports *italics* via fmt().
    ============================================================ */
 function renderBlock(p){
   /* media block (object) */
@@ -409,7 +418,7 @@ function renderBlock(p){
       return '<figure>'+
         '<img src="'+esc(p.src)+'" alt="'+esc(p.caption||'')+'">'+
         (p.caption
-          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+esc(p.caption)+'</figcaption>'
+          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+fmt(p.caption)+'</figcaption>'
           : '')+
       '</figure>';
     }
@@ -417,7 +426,7 @@ function renderBlock(p){
       return '<figure>'+
         '<audio controls src="'+esc(p.src)+'" style="width:100%"></audio>'+
         (p.caption
-          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+esc(p.caption)+'</figcaption>'
+          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+fmt(p.caption)+'</figcaption>'
           : '')+
       '</figure>';
     }
@@ -425,15 +434,15 @@ function renderBlock(p){
       return '<figure>'+
         '<video controls src="'+esc(p.src)+'" style="width:100%;border-radius:8px;display:block"></video>'+
         (p.caption
-          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+esc(p.caption)+'</figcaption>'
+          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+fmt(p.caption)+'</figcaption>'
           : '')+
       '</figure>';
     }
     /* unknown object type — ignore safely */
     return '';
   }
-  /* plain paragraph (string) */
-  return '<p>'+esc(p)+'</p>';
+  /* plain paragraph (string) — supports *italics* */
+  return '<p>'+fmt(p)+'</p>';
 }
 
 /* ============================================================
@@ -487,7 +496,7 @@ function pageSection(id){
     body=items.map(function(t){
       return '<a class="entry" href="#/thought/'+t.id+'">'+
         '<p class="meta">Thought #'+t.id+' · '+fmtDate(t.date)+' · '+t.read+' min</p>'+
-        '<h3>'+esc(t.title)+'</h3><p>'+esc(t.excerpt)+'</p>'+
+        '<h3>'+fmt(t.title)+'</h3><p>'+fmt(t.excerpt)+'</p>'+
         '<span class="read" style="color:'+s.hex+'">Read <span class="arw">→</span></span></a>';
     }).join('');
   } else {
@@ -513,17 +522,17 @@ function pageThought(id){
     var rs=byId[r.section];
     return '<a href="#/thought/'+r.id+'"><span class="dot" style="background:'+rs.hex+';margin-bottom:8px"></span>'+
       '<p class="c-col" style="color:'+rs.hex+';margin-bottom:4px">'+esc(rs.title)+'</p>'+
-      '<p class="rt">'+esc(r.title)+'</p></a>';
+      '<p class="rt">'+fmt(r.title)+'</p></a>';
   }).join('');
   return '<main class="fade article"><div class="wrap-sm" style="padding-top:56px;padding-bottom:40px">'+
     '<a class="uline" href="#/section/'+s.id+'" style="color:'+s.hex+';font-size:12px">← '+esc(s.title)+'</a>'+
     '<div class="dotrow mt6"><span class="dot" style="background:'+s.hex+'"></span>'+
       '<span class="c-col" style="color:'+s.hex+'">'+esc(s.title)+'</span></div>'+
-    '<h1>'+esc(t.title)+'</h1>'+
+    '<h1>'+fmt(t.title)+'</h1>'+
     '<p class="amet">Thought #'+t.id+' · '+fmtDate(t.date)+' · '+t.read+' min read</p>'+
     '<div class="body">'+paras+'</div>'+
     '<div class="stayed" style="border-color:'+s.hex+'"><p class="lbl">What stayed with me</p>'+
-      '<p class="q">'+esc(t.stayed)+'</p></div>'+
+      '<p class="q">'+fmt(t.stayed)+'</p></div>'+
     '<hr class="rule mt14" style="margin-bottom:40px">'+
     '<p class="eyebrow" style="margin-bottom:24px">Explore another perspective</p>'+
     '<div class="related">'+related+'</div></div></main>';
@@ -546,7 +555,7 @@ function pageArchive(){
         var s=byId[t.section];
         return '<a class="arow" href="#/thought/'+t.id+'">'+
           '<span class="dot" style="background:'+s.hex+'"></span>'+
-          '<div style="flex:1"><h3>'+esc(t.title)+'</h3>'+
+          '<div style="flex:1"><h3>'+fmt(t.title)+'</h3>'+
             '<p class="meta" style="font-size:12px;color:var(--mist);margin-top:4px">'+esc(s.title)+' · Thought #'+t.id+' · '+t.read+' min</p></div>'+
           '<span class="adate">'+fmtDate(t.date)+'</span></a>';
       }).join('');
@@ -571,7 +580,7 @@ function pageAbout(){
     'Eventually I realised there were seven recurring directions. So I gave them colours.',
     'The white centre is deliberately empty. It is the observer, the blank page, the space every perspective radiates from. Seven petals. One self.',
     'This is not a résumé and not a feed. It is a map of a mind — built to grow for years, and, slowly, to become a record of how a way of looking changes with time.'
-  ].map(function(p){return '<p>'+esc(p)+'</p>';}).join('');
+  ].map(function(p){return '<p>'+fmt(p)+'</p>';}).join('');
   var legend=SECTIONS.map(function(s){
     return '<a href="#/section/'+s.id+'"><span class="dot" style="background:'+s.hex+'"></span>'+
       '<span class="txt"><span class="lt">'+esc(s.title)+'</span>'+
@@ -606,8 +615,10 @@ function go(path){ location.hash=path; }
 
 function docTitle(r){
   var t='Spectrum — Seven colours. Seven perspectives. One observer.';
+  /* strip *asterisks* from titles used in the browser tab */
+  function plain(x){ return String(x).replace(/\*/g,''); }
   if(r.name==='section'&&byId[r.param]) t=byId[r.param].title+' — Spectrum';
-  else if(r.name==='thought'){ var th=null;THOUGHTS.forEach(function(x){if(x.id===r.param)th=x;}); if(th)t=th.title+' — Spectrum'; }
+  else if(r.name==='thought'){ var th=null;THOUGHTS.forEach(function(x){if(x.id===r.param)th=x;}); if(th)t=plain(th.title)+' — Spectrum'; }
   else if(r.name==='spectrum') t='The Spectrum — Spectrum';
   else if(r.name==='archive') t='Archive — Spectrum';
   else if(r.name==='about') t='About — Spectrum';

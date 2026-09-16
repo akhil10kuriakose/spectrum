@@ -33,6 +33,58 @@
 var THOUGHTS = [
 
   /* ▼▼▼ ADD YOUR NEWEST THOUGHT JUST BELOW THIS LINE ▼▼▼ */
+
+{
+  id: '002',
+  section: 'movies',
+  title: 'We All Knew How It Ends — Nolan’s The Odyssey',
+  date: '2026-09-16',
+  read: 5,
+  excerpt: 'A two thousand seven hundred year old story with no twist left to spoil. And still, for three hours, I could not look away.',
+  body: [
+    'I went in knowing the whole story. I even watched Troy (2004) as a warm-up. I suppose almost everyone knows it. A man leaves for war, wins it by hiding soldiers inside a wooden horse — giving us the phrase Trojan horse — and then takes twenty years to travel home. His wife waits. His son grows up without him. He returns and reclaims what is his. A troubled homecoming. Or Nostos.',
+
+    'Two thousand seven hundred years old. No twist left to spoil. Only the ever-relevant themes of Nostos, of Xenia — shall we say the Greek equivalent of our Athithi Devo Bhava? — and of a relentless determination to withstand adversity. Whether mythical or real. Mystical or grounded. Even in a time of apparent magic, as Nolan’s intertitle puts it.',
+
+    'And yet, for three full hours, I sat there spellbound.',
+
+    'I have always been a fan of Nolan’s storytelling, and most of his films age well. I watched this one in 4DX in Bengaluru, before attending and singing at a friend’s wedding. The splurge was worth it. The storms and the seas came alive in synchronised seat movements, with occasional flashes of lightning, air blasts and mist sprays when the scenes demanded them.',
+
+    'That is the strange thing about the oldest stories. Suspense was never really the point. We do not return to them to find out what happens. We return to find out how it feels when it happens, and whether it feels different to us now than it did the last time.',
+
+    'Nolan seems to understand this. The film does not open with Odysseus at all. It opens with a bard standing on a table in a banquet hall, telling a story to a room full of people. A story about a story. A meta-story set up. Before we meet the hero, we meet the act of telling.',
+
+    'The film is a slow burner, and its length befits the length of the epic. The mythological and supernatural portions are trimmed for narrative economy, but what each of them leaves you with felt like an adult version of something I once read in a children’s retelling, The Adventures of Ulysses. Ulysses being Odysseus himself, in his Latin form.',
+
+    'Given Oppenheimer, I expected Nolan to offer a humanist interpretation. He does. Yet the film still leaves room for enough monsters to stay true to the source material, and to the myriad meanings that writers have drawn from it across the centuries. The effect surprised me at moments.',
+
+    'Two scenes in particular stayed with me.',
+
+    'The first is when Odysseus remembers the fall of Troy with a tinge of survivor’s guilt and something close to war-induced PTSD. The Trojan Horse is framed as the ultimate violation of Zeus’s law of Xenia. He himself admits that his own homecoming mirrors it. If he could destroy another man’s home, why would he not fear the same being done to his — by the suitors who have taken up residence in it? That is Nolan’s invention, and it is a fine one.',
+
+    'The second is Athena appearing as an apparition of guilt. I would rate this brilliant as a storytelling device. In the epic, Athena pulls most of the strings and bends circumstances in Odysseus’s favour. Here she becomes a figment of the guilt he carries home from Troy — one that lingers until he can forgive himself for what was never entirely within his control.',
+
+    {
+      type: 'image',
+      src: 'media/Odyssey_Nolan_Trials.png',
+      caption: 'Every monster, read inward.'
+    },
+
+    'Which made me think about how much of this is true outside the cinema too, whether the matter at hand is revenge or simply healing a wound.',
+
+    'We reread books we have already finished. We rewatch films whose endings we can recite. We ask our parents for the same stories we have heard a hundred times.',
+
+    'Not because we forgot.',
+
+    'Because the story is not the information. The story is also the experience of being inside it again — another chance to unravel a dimension we missed the last time.',
+
+    'In Thought #001 I wrote that beauty often arrives before understanding. This felt like the other half of the same idea. Understanding everything in advance does not reduce the beauty either.',
+
+    'A story you already know can still take you somewhere. Somewhere you meet another version of yourself — the one that wishes you had taken a different path or made a different decision. Another verse in the song of the Sirens.'
+  ],
+  stayed: 'Twenty years to travel a distance that should have taken weeks. Perhaps the journey was never the obstacle. Perhaps it was the point.'
+},
+   
 {
   id: '001',
   section: 'music',

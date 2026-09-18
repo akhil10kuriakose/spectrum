@@ -20,15 +20,100 @@
      'learning'     — Red     · Learning
 
    FIELD GUIDE:
-     id       a unique number as text, e.g. '048' (just pick the next one)
+     id       a unique number as text, e.g. '004'
      section  one of the seven ids above
      title    the headline of your thought
-     date     'YYYY-MM-DD'  e.g. '2026-09-01'
+     date     'YYYY-MM-DD'  e.g. '2026-09-18'
      read     estimated minutes to read, a number e.g. 5
      excerpt  one or two teaser sentences (shown on cards)
-     body     the writing, as a LIST of paragraphs (each in quotes, comma-separated)
+     body     a LIST of paragraphs and/or media blocks (see below)
      stayed   your closing reflection — the "What stayed with me" line
+
+   ------------------------------------------------------------
+   ITALICS
+   ------------------------------------------------------------
+   Wrap anything in *asterisks* to italicise it. Works in the
+   title, excerpt, paragraphs, captions and the "stayed" line.
+
+       'I even watched *Troy* (2004) as a warm-up.'
+
+   Asterisks must come in PAIRS on the same line.
+   Do NOT use asterisks for song/film names inside the browser
+   tab — those are stripped automatically, so no harm either way.
+
+   ------------------------------------------------------------
+   THE BODY: paragraphs AND media blocks
+   ------------------------------------------------------------
+   Each item in "body" is either:
+
+     a) a plain string in quotes  →  becomes a paragraph
+     b) a { block } in braces     →  becomes media
+
+   Place a block anywhere in the list and it appears exactly
+   at that point in the article. Comma after each item.
+
+   --- QUOTE (for books, dialogue, lyrics) --------------------
+
+       {
+         type: 'quote',
+         text: 'The quotation goes here.',
+         cite: 'Who said it, and where'     // optional
+       },
+
+   Renders indented and italic, with a thin rule on the left.
+   'cite' appears small and grey beneath it.
+
+   --- YOUTUBE (embedded, playable) ---------------------------
+
+       {
+         type: 'youtube',
+         id: 'https://www.youtube.com/watch?v=XXXXXXXXXXX',
+         caption: 'Optional caption.'       // optional
+       },
+
+   Paste the FULL YouTube URL — no need to extract the ID.
+   Short youtu.be links and /shorts/ links work too.
+   Renders as a responsive 16:9 player.
+
+   --- IMAGE --------------------------------------------------
+
+       {
+         type: 'image',
+         src: 'media/your-picture.png',
+         caption: 'Optional caption.'       // optional
+       },
+
+   Upload pictures to the "media" folder in this repo first.
+   The filename must match EXACTLY, capitals included.
+
+   --- LINK (a tidy card pointing elsewhere) ------------------
+
+       {
+         type: 'link',
+         url: 'https://example.com/page',
+         title: 'What this link is',        // optional
+         label: 'Elsewhere'                 // optional heading
+       },
+
+   --- AUDIO / VIDEO (files you upload yourself) --------------
+
+       { type: 'audio', src: 'media/clip.mp3', caption: '…' },
+       { type: 'video', src: 'media/clip.mp4', caption: '…' },
+
+   ------------------------------------------------------------
+   FIVE RULES THAT PREVENT MOST MISTAKES
+   ------------------------------------------------------------
+   1. Keep every quote '...' closed.
+   2. Keep the comma after each item and each closing brace.
+   3. Use curly apostrophes (’) inside single-quoted text,
+      e.g. 'don’t' — a straight ' would end the string early.
+   4. 'read' is a plain number (5), not text ('5 min').
+   5. Edit one thing, commit, check. If the page goes blank,
+      your last edit has a typo — GitHub keeps every version,
+      so just undo and try again. index.html is never affected.
    ============================================================ */
+
+
 
 var THOUGHTS = [
 
@@ -251,44 +336,43 @@ var THOUGHTS = [
       'I do not run to think. But the best thinking I do all week happens by accident, at a heart rate I did not plan.'
     ],
     stayed: 'Motion is a solvent for stuck thoughts.'
-  },
-  {
-    id: '041',
-    section: 'learning',
-    title: 'Things I used to believe (and quietly returned)',
-    date: '2026-06-22',
-    read: 6,
-    excerpt: 'Changing your mind used to feel like losing. Lately it feels like an upgrade.',
-    body: [
-      'I once treated my opinions like possessions — things to defend, inventory, insure.',
-      'Now I think of them more like rented rooms. Useful while I live in them, but never the whole building. When a better idea arrives with better evidence, I move.',
-      'This section exists mostly to keep an honest ledger of that: the beliefs I have handed back, and what I traded them for.'
-    ],
-    stayed: 'A mind worth having is one you are willing to edit.'
   }
 
 ];
 
 
 /* ============================================================
-   TEMPLATE — copy everything between the lines, paste it at the
-   TOP (just below the "ADD YOUR NEWEST THOUGHT" marker above),
-   and fill it in. Keep the comma after the closing brace.
+   TEMPLATE — copy, paste at the TOP under the marker, fill in.
+   Delete any block you don't need. Keep the trailing comma.
    ------------------------------------------------------------
 
   {
-    id: '048',
+    id: '004',
     section: 'music',
     title: 'Your title here',
-    date: '2026-09-01',
+    date: '2026-10-01',
     read: 5,
     excerpt: 'One or two sentences that tease the thought.',
     body: [
       'Your first paragraph.',
-      'Your second paragraph.',
-      'Add as many paragraphs as you like — each in quotes, separated by commas.'
+
+      {
+        type: 'quote',
+        text: 'Something worth quoting.',
+        cite: 'Source'
+      },
+
+      'Another paragraph.',
+
+      {
+        type: 'youtube',
+        id: 'https://www.youtube.com/watch?v=XXXXXXXXXXX',
+        caption: 'Optional caption.'
+      },
+
+      'A closing paragraph.'
     ],
-    stayed: 'Your closing reflection — the line that stayed with you.'
+    stayed: 'Your closing reflection.'
   },
 
    ============================================================ */

@@ -35,6 +35,61 @@ var THOUGHTS = [
   /* ▼▼▼ ADD YOUR NEWEST THOUGHT JUST BELOW THIS LINE ▼▼▼ */
 
 {
+  id: '003',
+  section: 'learning',
+  title: 'Rosy-Fingered Dawn — Reading the *Odyssey* After Watching It',
+  date: '2026-09-18',
+  read: 7,
+  excerpt: 'A friend gifted me Butler’s translation after I enjoyed Nolan’s film. Seven things stood out — and one of them explains why this story refuses to die.',
+  body: [
+    'A friend gifted me Samuel Butler’s translation of the *Odyssey* on learning that I had enjoyed the Nolan-esque adaptation on screen. I started reading it right away.',
+
+    'The prosaic translation made it easier going than I expected. Butler renders in prose what Homer sang in verse, and that single decision turns an epic poem into something closer to a novel — a thing you can actually finish rather than merely admire. The only real friction came from the references to the various gods, which Homer assumes his reader already knows. I did not, always. I looked them up as I went.',
+
+    'Seven things stood out during and after the reading.',
+
+    'Homer uses a phrase that translates to *Child of Morning, rosy-fingered Dawn* every single time a new day appears. Classic personification, and it put a smile on my face each time I ran into it. Because in a long-drawn homecoming, a new day could mean a new challenge or another turn in the story. The Child of Morning was a signpost for newer courses.',
+
+    '*Hecatomb* was another word I kept meeting, and I had to dig to find out what it meant. The epic is set in a period where divine agency was believed to manifest, and the human need to seek favours meant carrying out sacrificial offerings. A hecatomb was the communal event that ritualised the practice. Throughout the length of the story, the pantheon influences events both small and large — and Athena, called Minerva in my translation, is the steady advocate of Odysseus.',
+
+    'Odysseus is a charming and shrewd storyteller first, and an adept fighter second. In that order. In the many episodes where he is forced to conceal his identity, he spins tales and histories that make anyone believe him. The fighting we already know about. The lying is the part that surprised me.',
+
+    'The epic is non-linear by structure, which made it a test of patience and memory. One character I had not expected to find so interesting is Nausicaa, who helps Odysseus at an hour of dire need. She and the people of her kingdom are instrumental in getting him to the shores of Ithaca after his long stay with Calypso. Grounded as the whole episode is, it is something I wish Nolan had included, even briefly. That is a wish I only developed after the reading.',
+
+    'The journey is fraught with danger, but by Homeric design the homecoming is no different. The character who foretells and foreshadows what might lie in wait for Odysseus at home is Agamemnon — the very man who led the Trojan war that made Odysseus leave Ithaca in the first place.',
+
+    'Then there is an exchange in the land of the dead that I keep returning to.',
+
+    {
+      type: 'quote',
+      text: 'My poor Ulysses, noble son of Laertes, are you too leading the same sorry kind of life that I did when I was above ground? I was son of Jove, but I went through an infinity of suffering, for I became bondsman to one who was far beneath me…',
+      cite: 'Hercules, to Odysseus, in the land of the dead'
+    },
+
+    'A hero understanding and acknowledging what toll it really takes to live a heroic life. Not the glory. The cost.',
+
+    'And to finish on a lighter note — the face that launched a thousand ships is, by the time Telemachus visits Sparta seeking news of his father, quite contentedly playing host under Zeus’s law of *Xenia* alongside Menelaus. Seriously? A long war was initiated on Helen’s account, whether one reads it as elopement or abduction, and life simply goes on as normal.',
+
+    'What kept me trudging through the epic was what Homer knew about human nature.',
+
+    'He wrote a man who comes home and does not recognise his own life. Who weeps hearing his own war sung by a stranger. Who lies compulsively even when the truth would serve him better. That is not primitive storytelling. That is observation we would now call psychological — and precisely why Nolan could pursue the psychological angle as far as he did. The material was already there.',
+
+    'Which brings me to why it has survived two thousand seven hundred years.',
+
+    'Perhaps because the psychological observations are still true about humans, despite the noise. Fashions in gods and heroes may come and go. Accuracy about people is not going out of fashion.',
+
+    'If you would like a brisk way in before committing to the whole epic, this is where I would point you.',
+
+    {
+      type: 'youtube',
+      id: 'https://youtu.be/MS4jk5kavy4?si=g_Bj27Lviacp_pxQ',
+      caption: 'Crash Course Literature on the *Odyssey* — a channel I keep returning to.'
+    }
+  ],
+  stayed: 'Homer did not need psychology to describe a mind at war with itself. He only needed to watch people closely, and write down what he saw.'
+},
+   
+{
   id: '002',
   section: 'movies',
   title: 'We All Knew How It Ends — Nolan’s *The Odyssey*',

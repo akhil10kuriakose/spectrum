@@ -151,6 +151,28 @@ nav.main a:hover,nav.main a.active{color:var(--ink)}
 .article .body p{font-family:var(--serif);font-size:21px;line-height:1.65;color:#2a2a2e}
 .article .body figure{margin:8px 0}
 .article .body figure img{width:100%;border-radius:8px;display:block}
+.article .body figcaption{text-align:center;color:var(--mist);font-size:14px;margin-top:8px}
+
+/* pull quote — for quoting books, lyrics, dialogue */
+.article .body blockquote{margin:8px 0;padding:4px 0 4px 24px;border-left:2px solid var(--hair)}
+.article .body blockquote p{font-family:var(--serif);font-style:italic;font-size:21px;
+  line-height:1.6;color:#3a3a3d}
+.article .body blockquote cite{display:block;margin-top:10px;font-family:var(--sans);
+  font-style:normal;font-size:13px;letter-spacing:.06em;color:var(--mist)}
+
+/* responsive video / embed wrapper */
+.embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;
+  background:#eceae5}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* inline resource link block */
+.linkblock{display:block;border:1px solid var(--hair);border-radius:8px;padding:18px 20px;
+  transition:border-color .3s ease,background .3s ease}
+.linkblock:hover{border-color:var(--faint);background:#f6f6f3}
+.linkblock .lb-lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist)}
+.linkblock .lb-t{font-family:var(--serif);font-size:20px;line-height:1.3;color:#26262a;margin-top:6px}
+.linkblock .lb-u{font-size:13px;color:var(--mist);margin-top:6px;word-break:break-all}
+
 .stayed{margin-top:48px;padding-left:24px;border-left:2px solid}
 .stayed .lbl{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mist);margin-bottom:8px}
 .stayed .q{font-family:var(--serif);font-style:italic;font-size:24px;color:#26262a}
@@ -228,6 +250,8 @@ footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
   .sec-hd .sub{font-size:22px}
   .article h1{font-size:32px}
   .article .body p{font-size:20px}
+  .article .body blockquote{padding-left:18px}
+  .article .body blockquote p{font-size:20px}
   .about h1{font-size:32px}
   .h-page{font-size:32px}
   .caption .c-title{font-size:23px}
@@ -293,6 +317,20 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
    Write *like this* in thoughts.js and it renders in italics.
    HTML is escaped first, so this stays completely safe.        */
 function fmt(s){ return esc(s).replace(/\*([^*]+)\*/g,'<em>$1</em>'); }
+
+/* safeUrl() — only allow http/https links, so a bad value can never inject code */
+function safeUrl(u){
+  u = String(u || '');
+  return /^https?:\/\//i.test(u) ? esc(u) : '#';
+}
+
+/* ytId() — accepts a bare ID or any normal YouTube URL and returns just the ID */
+function ytId(v){
+  v = String(v || '');
+  var m = v.match(/(?:youtu\.be\/|v=|\/embed\/|\/shorts\/)([A-Za-z0-9_-]{6,})/);
+  var id = m ? m[1] : v;
+  return /^[A-Za-z0-9_-]{6,}$/.test(id) ? id : '';
+}
 
 function fmtDate(iso){return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 function monthKey(iso){return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{month:'long',year:'numeric'});}
@@ -406,41 +444,67 @@ function thoughtCard(t){
 
 /* ============================================================
    ARTICLE BODY RENDERER
-   Handles plain paragraphs (strings) AND media blocks (objects).
-   A media block looks like:
-     { type:'image', src:'media/pic.png', caption:'optional caption' }
-   Text supports *italics* via fmt().
+   ------------------------------------------------------------
+   A body is a list. Each item is either:
+
+     a plain string  →  a paragraph (supports *italics*)
+
+   or one of these blocks:
+
+     { type:'image',   src:'media/pic.png',  caption:'optional' }
+     { type:'quote',   text:'the quotation', cite:'optional source' }
+     { type:'youtube', id:'VIDEO_ID',        caption:'optional' }
+     { type:'link',    url:'https://…', title:'optional', label:'optional' }
+     { type:'audio',   src:'media/clip.mp3', caption:'optional' }
+     { type:'video',   src:'media/clip.mp4', caption:'optional' }
    ============================================================ */
+function figcap(c){
+  return c ? '<figcaption>'+fmt(c)+'</figcaption>' : '';
+}
+
 function renderBlock(p){
-  /* media block (object) */
   if(p && typeof p === 'object'){
+
     if(p.type === 'image'){
-      return '<figure>'+
-        '<img src="'+esc(p.src)+'" alt="'+esc(p.caption||'')+'">'+
-        (p.caption
-          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+fmt(p.caption)+'</figcaption>'
-          : '')+
-      '</figure>';
+      return '<figure><img src="'+esc(p.src)+'" alt="'+esc(p.caption||'')+'">'+figcap(p.caption)+'</figure>';
     }
+
+    if(p.type === 'quote'){
+      return '<blockquote><p>'+fmt(p.text||'')+'</p>'+
+        (p.cite ? '<cite>'+fmt(p.cite)+'</cite>' : '')+
+      '</blockquote>';
+    }
+
+    if(p.type === 'youtube'){
+      var vid = ytId(p.id || p.url || p.src);
+      if(!vid) return '';
+      return '<figure><div class="embed">'+
+        '<iframe src="https://www.youtube-nocookie.com/embed/'+vid+'" '+
+        'title="'+esc(p.caption||'YouTube video')+'" loading="lazy" allowfullscreen '+
+        'allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>'+
+        '</div>'+figcap(p.caption)+'</figure>';
+    }
+
+    if(p.type === 'link'){
+      return '<a class="linkblock" href="'+safeUrl(p.url)+'" target="_blank" rel="noopener noreferrer">'+
+        '<span class="lb-lbl">'+esc(p.label||'Elsewhere')+'</span>'+
+        '<span class="lb-t">'+fmt(p.title||p.url||'')+'</span>'+
+        '<span class="lb-u">'+esc(p.url||'')+'</span>'+
+      '</a>';
+    }
+
     if(p.type === 'audio'){
-      return '<figure>'+
-        '<audio controls src="'+esc(p.src)+'" style="width:100%"></audio>'+
-        (p.caption
-          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+fmt(p.caption)+'</figcaption>'
-          : '')+
-      '</figure>';
+      return '<figure><audio controls src="'+esc(p.src)+'" style="width:100%"></audio>'+figcap(p.caption)+'</figure>';
     }
+
     if(p.type === 'video'){
-      return '<figure>'+
-        '<video controls src="'+esc(p.src)+'" style="width:100%;border-radius:8px;display:block"></video>'+
-        (p.caption
-          ? '<figcaption style="text-align:center;color:var(--mist);font-size:14px;margin-top:8px;">'+fmt(p.caption)+'</figcaption>'
-          : '')+
-      '</figure>';
+      return '<figure><video controls src="'+esc(p.src)+'" style="width:100%;border-radius:8px;display:block"></video>'+figcap(p.caption)+'</figure>';
     }
-    /* unknown object type — ignore safely */
+
+    /* unknown block type — ignore safely */
     return '';
   }
+
   /* plain paragraph (string) — supports *italics* */
   return '<p>'+fmt(p)+'</p>';
 }

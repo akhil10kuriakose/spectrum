@@ -206,7 +206,7 @@ var THOUGHTS = [
 
     'Then again, the Avengers did eventually find an answer. It took them five years, most of a decade of films, and a great deal of help.',
 
-    'So — tune in, and look for solutions, as the fans catch a recap of *Avengers: Endgame* Encore from this weekend.'
+    'So — tune in, and look for solutions, as the fans catch a recap of *Avengers: Endgame Encore* from this weekend.'
   ],
   stayed: 'He was right that there was a problem. Everything terrible he did followed from being certain he was also right about the answer.'
 },

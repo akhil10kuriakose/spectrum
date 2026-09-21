@@ -372,21 +372,6 @@ var THOUGHTS = [
 
 
   /* ▲▲▲ ADD YOUR NEWEST THOUGHT JUST ABOVE THIS LINE ▲▲▲ */
-
-  {
-    id: '047',
-    section: 'not-so-good',
-    title: 'Why the best villains sometimes make more sense than the heroes',
-    date: '2026-08-28',
-    read: 7,
-    excerpt: 'A hero who never doubts is just a schedule. A villain who is right about the diagnosis and wrong about the cure is a mirror.',
-    body: [
-      'The most durable antagonists are rarely evil for its own sake. They begin with a grievance we quietly recognise — an unfairness, a broken system, a promise the world failed to keep.',
-      'What makes them dangerous is not that they are wrong about the wound. It is that they are wrong about the cure. They mistake demolition for repair.',
-      'Sitting with that discomfort is useful. It forces a harder question than "who is good?" — it asks, "at what point did a reasonable person choose an unreasonable answer?"'
-    ],
-    stayed: 'The line between a critic and a villain is often just patience.'
-  },
   {
     id: '046',
     section: 'the-good',

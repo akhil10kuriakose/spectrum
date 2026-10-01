@@ -119,6 +119,82 @@ var THOUGHTS = [
 
   /* ▼▼▼ ADD YOUR NEWEST THOUGHT JUST BELOW THIS LINE ▼▼▼ */
 {
+  id: '005',
+  section: 'mountains',
+  title: 'A Hot Bowl of Noodles at Two Thousand Metres',
+  date: '2026-10-01',
+  read: 5,
+  excerpt: 'My first proper hike, a tea estate above two thousand metres, and the strange luxury of a hot bowl of noodles at 15°C.',
+  body: [
+    'In 2022, my buddy and I signed up for an extended weekend hike near the Tamil Nadu–Keralam border, on the Idukki side, en route to Munnar via Suryanelli. It was my first experience of anything close to a proper hike. We were only looking for a mid-level fitness challenge and a way to pass a weekend.',
+
+    'It began after breakfast in Theni, a grove-blessed village town, followed by the serpentine roads of the Bodi range in the Western Ghats. Once we crossed into Keralam, the geography gave way to tea plantations. From there, off-road jeeps took us up to our base camp at Kolukkumalai. The terrain took its own toll on my buddy. He butted his head against the roof of the jeep, and it was something he would remember for quite some time.',
+
+    'A small irony I only noticed later: Kolukkumalai is in Theni district, Tamil Nadu. The only road up is from Suryanelli on the Keralam side. So we had left Tamil Nadu, crossed into Keralam, and then climbed straight back into Tamil Nadu. We had breakfasted in the same district the whole time, just a couple of thousand metres lower.',
+
+    'Over the next few days, sunrise, sunset and rain all felt different, and we were ably guided by the team in charge. I also got a tour of the factory and learnt how tea is processed from the raw leaf.',
+
+    'Our guide explained the name. *Kolu* is the tender sprout, the fresh pair of leaves with a bud that the pluckers look for. *Malai* is mountain. The estate is often described as the highest organic tea plantation in the world, and it was set up during British rule. I learnt only recently, from the documentary *Nilgiris – A Shared Wilderness*, why the British were so keen to grow tea in India in the first place: they wanted to break China’s monopoly on supply around the time of the Opium Wars.',
+
+    {
+      type: 'image',
+      src: 'media/Kolukkumalai_2_Tea_slopes_at_golden_hour.jpg',
+      caption: 'Every ridge of green here is a hedge of tea.'
+    },
+
+    'Kolukkumalai stands a little over two kilometres above sea level. It was the highest I had ever been, and the cold reached a body used only to Chennai’s tropical climate in more ways than I expected. Temperatures around 15°C were new to me. A hot bowl of noodles at an early supper felt like a luxury.',
+
+    'That feeling has stayed. A warm tent and a sleeping bag still feel special at altitude, even now. Things we take for granted at sea level start to feel like gifts up there. That is what altitude does. It recalibrates what counts as enough and teaches you to be happy with less, a skill that tends to get buried in hurried city life.',
+
+    {
+      type: 'image',
+      src: 'media/Kolukkumalai_3_Tents_in_the_rain.jpg',
+      caption: 'Base camp, the morning after the rain.'
+    },
+
+    'Up there, you don’t just meet nature in its pristine form. You start to feel its rhythm, the life going on around you. With no network, the obvious thing left to do is sit with yourself, quietly, and tune in to the frequency of the place.',
+
+    {
+      type: 'image',
+      src: 'media/Kolukkumalai_4_Red_Rhododendron.jpg',
+      caption: 'Colour, where you least expect it.'
+    },
+
+    'Above the treeline, everything is zoomed out. From that vantage point, our whole selves look like specks. For a few moments, even our biggest problems seem small next to the effort it took to reach the top.',
+
+    {
+      type: 'image',
+      src: 'media/Kolukkumalai_1_Peak_rising_out_of_the_clouds.jpg',
+      caption: 'Above the clouds, problems resize themselves.'
+    },
+
+    'I suspect that is why trekkers keep going back. Not because one summit fixes anything, but to remind themselves that effort and pain can still add up to something, and that you can push through and get on with life. The reminder wears off, and that is fine.',
+
+    {
+      type: 'quote',
+      text: 'People often say that motivation doesn’t last. Well, neither does bathing — that’s why we recommend it daily.',
+      cite: 'Zig Ziglar'
+    },
+
+    {
+      type: 'quote',
+      text: 'The mountains are calling and I must go.',
+      cite: 'John Muir'
+    },
+
+    'Being able to see the skyline from an aeroplane window is a privilege. I think being able to hike at will, sweat and all, is a bigger one. It teaches you to wait patiently for the summit while still putting effort into every step of the ascent.',
+
+    {
+      type: 'image',
+      src: 'media/Kolukkumalai_5_Sunset_over_the_valley.jpg',
+      caption: 'The day’s descent.'
+    },
+
+    'And after the summit, once you have soaked in the view, comes the descent. It matters as much as the climb, if not more. Which holds good for navigating life in general.'
+  ],
+  stayed: 'Altitude makes a bowl of noodles feel like a luxury. Perhaps the summit was never the prize. Learning to need less was.'
+},
+{
   id: '004',
   section: 'not-so-good',
   title: 'The Arithmetic of Mercy',
@@ -386,20 +462,7 @@ var THOUGHTS = [
     ],
     stayed: 'Reliability is an underrated form of love.'
   },
-  {
-    id: '044',
-    section: 'mountains',
-    title: 'Above the treeline the noise finally runs out',
-    date: '2026-07-30',
-    read: 6,
-    excerpt: 'Altitude has a way of shrinking the arguments you carried up with you.',
-    body: [
-      'Somewhere past the last stunted trees the wind takes over and the mental chatter thins to almost nothing.',
-      'Perspective is not a metaphor up there; it is literal. The valley you fretted about is a fold in green, the town a scattering of roofs. The problems did not solve themselves — they simply resized.',
-      'I go to the mountains not to escape my life but to see its actual proportions.'
-    ],
-    stayed: 'Scale is the cheapest therapy there is.'
-  },
+  
   {
     id: '043',
     section: 'movement',

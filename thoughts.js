@@ -118,6 +118,147 @@
 var THOUGHTS = [
 
   /* ▼▼▼ ADD YOUR NEWEST THOUGHT JUST BELOW THIS LINE ▼▼▼ */
+  {
+    id: '006',
+    section: 'the-good',
+    title: 'Burdened with Glorious Purpose',
+    date: '2026-10-03',
+    read: 10,
+    excerpt: 'A packed theatre cheered loudest for the villain of New York. Loki, a second chance, and a glorious purpose turned upside down.',
+    body: [
+      'When I sat down in the theatre for *Endgame: Encore* last week, the 2026 re-release of *Avengers: Endgame*, I expected the loudest cheers to go to Captain America and Iron Man. Loki wasn’t going to be one of them, in my reckoning, though I planned to cheer for him myself, however small my voice.',
+
+      'I was wrong. For the minute or two he was on screen, the crowd almost went berserk.',
+
+      'What changed was everything that happened between the 2019 release and this one. Marvel Studios had given him a series of his own, which expanded the character and gave him a finish that would rival any lead’s. So here I’d like to sketch Loki’s arc: from mercurial villain, to God of Mischief, to something closer to the God of Stories he is called in the comics.',
+
+      { type: 'heading', text: 'The case against him' },
+
+      'To be blunt, Loki begins as a power-hungry god who will stop at nothing to get a throne, whether in Asgard or on our Earth. He is a victim of sibling rivalry, insecure and slighted beside his more celebrated brother Thor. When he learns his true parentage, the old inferiority complex takes over and shapes both his ambition and his methods. He never tries to learn what it takes to rule. He only wants to rule, by any means, blinded by his own vanity.',
+
+      {
+        type: 'quote',
+        text: 'I am Loki of Asgard, and I am burdened with glorious purpose.',
+        cite: 'Loki — *The Avengers* (2012)'
+      },
+
+      {
+        type: 'quote',
+        text: 'It’s the unspoken truth of humanity, that you crave subjugation.',
+        cite: 'Loki — *The Avengers* (2012)'
+      },
+
+      'Fate hands him his chance. Sent by Thanos, whom I wrote about in Thought #004, he invades Earth to rule it. This brings him into direct conflict with the Avengers, and he loses the Battle of New York. He is humiliated along the way: Hulk throws him around like a rag doll and dismisses him as a “puny god.” He is taken back to Asgard as a prisoner.',
+
+      'His relationship with Thor, though, was never simple. It moves between betrayal and love, depending on the circumstances of the moment.',
+
+      {
+        type: 'quote',
+        text: 'Man is the creature of circumstances.',
+        cite: 'Robert Owen'
+      },
+
+      {
+        type: 'quote',
+        text: 'I never wanted the throne! I only ever wanted to be your equal!',
+        cite: 'Loki — *Thor* (2011)'
+      },
+
+      {
+        type: 'quote',
+        text: 'I assure you, brother, the sun will shine on us again.',
+        cite: 'Loki — *Avengers: Infinity War* (2018)'
+      },
+
+      'In *Infinity War*, after Thanos slaughters half the Asgardians aboard their refugee ship, Loki makes a desperate, well-meant and doomed attempt to kill him and save Thor. Fate doesn’t favour him. Thanos kills him. It was a sorry anticlimax for a god who had spent most of his life as a pest of a younger brother, yet Thor, who loved him despite everything, is shattered.',
+
+      { type: 'heading', text: 'The second chance' },
+
+      'Then comes the extra life, the way a video game gives you one more go at a mission you’ve failed.',
+
+      'During the Avengers’ time heist in *Endgame*, the 2012 Loki grabs the Tesseract, which holds the Space Stone, and escapes custody before he can be taken to Asgard. In 2019 this looked like a glitch: the Avengers admit the mistake and find another way. The *Loki* series reveals what it really did. His escape created a branched timeline. That makes him a “variant,” and the Time Variance Authority (TVA), which keeps reality stable by “pruning” unwanted branches, arrests him.',
+
+      'That is how the MCU redeems Loki twice, by two different routes. The original Loki grew slowly over three films and died standing up to Thanos. The variant never lived those years. He is the New York Loki, unchanged. So he has to arrive at the same place another way.',
+
+      'The TVA agent on his case, Mobius, takes him apart. He shows Loki his past and his future on a screen: his mother’s death, his own death, all of it. Then he reasons with him, perhaps to give him one more chance to prove himself.',
+
+      { type: 'heading', text: 'The series' },
+
+      'I watched *Loki* only because it was listed as required viewing before *Avengers: Doomsday*, due this December. I didn’t expect it to be so full of philosophy, or of lines about humanity and morality.',
+
+      'Mobius sets the tone early, when he tells Loki what he really is:',
+
+      {
+        type: 'quote',
+        text: 'You weren’t born to be king, Loki. You were born to cause pain and suffering and death… all so that others can achieve the best versions of themselves.',
+        cite: 'Mobius — *Loki* (Season 1)'
+      },
+
+      'Loki, in the next episode, answers with something closer to the truth about both of them:',
+
+      {
+        type: 'quote',
+        text: 'No one bad is ever truly bad, and no one good is ever truly good.',
+        cite: 'Loki — *Loki* (Season 1, Episode 2)'
+      },
+
+      'But the lines I keep returning to are these. They are my favourites, and together they read almost like the argument of this whole thought.',
+
+      {
+        type: 'quotes',
+        label: 'My favourites from the series',
+        items: [
+          { text: 'Most purpose is more burden than glory.', cite: 'Mobius — Season 2' },
+          { text: 'There is no comfort. You just choose your burden.', cite: 'Mobius — Season 2, Episode 6' },
+          { text: 'Sure. Burn it down. Easy. Annihilating is easy. Razing things to the ground is easy. Trying to fix what is broken is hard. Hope is hard.', cite: 'Loki — Season 2, Episode 1' },
+          { text: 'I can rewrite the story.', cite: 'Loki — Season 2, Episode 6' }
+        ]
+      },
+
+      'That third one could have been written as a reply to Thanos. He chose annihilation because it was easy. Loki, the former agent of chaos, ends up arguing for the harder thing.',
+
+      'And then, as he walks out towards the Temporal Loom:',
+
+      {
+        type: 'quote',
+        text: 'I know what I want. I know what kind of god I need to be. For you. For all of us.',
+        cite: 'Loki — *Loki* (Season 2, Episode 6)'
+      },
+
+      'That line deliberately echoes the first *Thor* film, where a desperate Loki, dangling over the void, pleads with Odin: *I could have done it, Father! For you! For all of us!* Same words. Back then he wanted approval and conquest. Now he means it as a promise.',
+
+      { type: 'heading', text: 'Glorious purpose, inverted' },
+
+      'That journey, from an impulsive, vain, childlike god to the being who holds reality together and outgrows the very authority that arrested him, is what I think the theatre was cheering for.',
+
+      'The key shift is that “glorious purpose” stops meaning *ruling* and starts meaning *serving*. The Gospel of Mark puts it plainly:',
+
+      {
+        type: 'quote',
+        text: 'If anyone wants to be first, he must be the very last, and the servant of all.',
+        cite: 'Mark 9:35'
+      },
+
+      'That sums up Loki’s arc. He starts in the MCU wanting to be greater than everyone, chasing thrones, crowns and a glorious purpose where others kneel before him. He ends the series doing the opposite. He takes the throne at the end of time to anchor the multiverse, and accepts an eternity of isolation so his friends, and trillions of strangers, can go on living with free will. The timelines he holds together grow into the shape of Yggdrasil, the World Tree of Norse myth.',
+
+      'He finally got his throne. It just came with no subjects to kneel to him.',
+
+      'Which brings me back to Robert Owen. If man is the creature of circumstances, Loki’s redemption shouldn’t count for much: he was simply put somewhere new. But I don’t think that’s what happens. Loki wasn’t always good. He chose goodness *knowing exactly what he had been*. Goodness as a decision, not a nature. The goodness was always available in him; it only needed different conditions to come out.',
+
+      {
+        type: 'quote',
+        text: 'Circumstances don’t make the man, they only reveal him to himself.',
+        cite: 'Epictetus'
+      },
+
+      'So Mobius’s faith turns out to be justified. And it mirrors Thought #004: Thanos took on a burden alone to end half of all life. Loki takes on a burden alone to keep all of it alive.',
+
+      'The God of Mischief becomes the servant of all.',
+
+      'Like every other Marvel fan, I’m wondering what becomes of him when he faces a far greater adversary than Thanos: Doctor Victor Von Doom. At the very least, we’ll know before Christmas.'
+    ],
+    stayed: 'He spent a lifetime chasing a throne. When he finally took one, it was the only seat in the universe that nobody would envy.'
+  },
 {
   id: '005',
   section: 'mountains',

@@ -589,20 +589,6 @@ var THOUGHTS = [
 
 
   /* ▲▲▲ ADD YOUR NEWEST THOUGHT JUST ABOVE THIS LINE ▲▲▲ */
-  {
-    id: '046',
-    section: 'the-good',
-    title: 'Quiet courage is the kind that never trends',
-    date: '2026-08-21',
-    read: 5,
-    excerpt: 'We celebrate the loud, decisive kind of bravery. The rarer sort just shows up again tomorrow.',
-    body: [
-      'Admiration usually goes to the dramatic gesture — the speech, the sacrifice, the single defining moment.',
-      'But the people I keep coming back to are steadier than that. They are kind when no one is counting. They keep a promise that stopped being convenient months ago.',
-      'Character, it turns out, is less an event than a habit. It compounds silently, and you only notice the interest years later.'
-    ],
-    stayed: 'Reliability is an underrated form of love.'
-  },
   
   {
     id: '043',

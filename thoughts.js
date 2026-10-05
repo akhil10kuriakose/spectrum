@@ -136,7 +136,7 @@ var THOUGHTS = [
 
     {
       type: 'image',
-      src: 'media/Me_Run_1.png',
+      src: 'media/Me_Run_1.jpg',
       caption: 'First 10K, 2022. That’s me in the box, with the clock still running. Net time 1:16:11.'
     },
 
@@ -651,21 +651,6 @@ var THOUGHTS = [
 
 
   /* ▲▲▲ ADD YOUR NEWEST THOUGHT JUST ABOVE THIS LINE ▲▲▲ */
-  
-  {
-    id: '043',
-    section: 'movement',
-    title: 'The mile where the thinking finally starts',
-    date: '2026-07-18',
-    read: 4,
-    excerpt: 'The first few kilometres are just negotiation. The clarity is further out than that.',
-    body: [
-      'Every run begins as an argument with myself. The legs file complaints, the mind lists reasons to stop.',
-      'Then, somewhere around the fourth kilometre, the noise settles and something else takes over — a steady, wordless rhythm where problems untangle on their own.',
-      'I do not run to think. But the best thinking I do all week happens by accident, at a heart rate I did not plan.'
-    ],
-    stayed: 'Motion is a solvent for stuck thoughts.'
-  }
 
 ];
 

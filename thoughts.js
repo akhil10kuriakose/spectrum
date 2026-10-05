@@ -118,6 +118,68 @@
 var THOUGHTS = [
 
   /* ▼▼▼ ADD YOUR NEWEST THOUGHT JUST BELOW THIS LINE ▼▼▼ */
+   {
+  id: '007',
+  section: 'movement',
+  title: 'Out of Breath, Never Out of Will',
+  date: '2026-10-05',
+  read: 6,
+  excerpt: 'A cousin’s 10K plan, a half marathon three years later, and why I decided running would stay a goal-free hobby.',
+  body: [
+    'In 2022, my cousin visited Chennai with a friend from work. They had planned their itinerary in advance, and running a 10K at a Dream Runners event was part of it.',
+
+    'I was intrigued. If my cousin, five years older than me, could do such a thing, I thought I might as well try. I didn’t know anything about running. I jogged a few times to prepare, trusted my body, my age and my instinct, and picked up a few tips from the visiting runners.',
+
+    'What began as curiosity would become part of my life, and change me in ways I couldn’t have imagined then.',
+
+    'I finished that first 10K with some difficulty. My legs hurt, but my mind told me to keep going. I was out of breath, but never out of will. I had never done anything like it before.',
+
+    {
+      type: 'image',
+      src: 'media/Me_Run_1.png',
+      caption: 'First 10K, 2022. That’s me in the box, with the clock still running. Net time 1:16:11.'
+    },
+
+    'I had practised fasting as part of religious observance, and it comes with an old idea: to strengthen the mind, you sometimes weaken the body in controlled ways. Running felt like the reverse. Strengthen the mind, and it strengthens the body enough to finish the course.',
+
+    'At the start, 10 km seemed daunting. But once I crossed the halfway mark, the rest seemed doable. That still holds today, after many months of my humble running.',
+
+    'Most people talk about the aerobic benefits of running, or the fat it burns. For me, the most personal reason to continue was what it did to my mind before, during and after a run. Once the mind settles, the body finds its rhythm, and then life seems bearable whatever the circumstances.',
+
+    'Altitude helps you zoom out of life and see its burdens at their real size, as I wrote in Thought #005. Running does the opposite. It zooms all the way in, until your whole life is the current breath and the next stride. You feel your own heart beating, and some part of you is grateful for every bit of it. That narrowing can tip into a flow state, something close to Zen. Veteran runners I know describe the same thing. One friend once joked:',
+
+    {
+      type: 'quote',
+      text: 'Running is a prayer, the road a sanctuary, and the mind the ultimate engine.',
+      cite: 'A runner friend'
+    },
+
+    'After two more 10Ks, one each year, I decided to run my first half marathon in 2025. It would be a milestone. I joined a running group and did strength training diligently. I learnt the basics of long-distance running, though I wasn’t a perfect follower of the rules. I also picked up a few fellow enthusiasts along the way, including a runner from the office, which made the preparation easier to bear.',
+
+    'On race day, I still remember the song playing at the start line: Sia’s *Unstoppable*. Its rhythm carried me through the first few hundred metres.',
+
+    'I ran the first half of the distance comfortably. After that, my body began to show fatigue. I took it easy and kept moving, sipping water at the aid stations and trudging on. Past the 70% mark, the 10K and half marathon routes merged, and I ran into a few office friends doing their 10K.',
+
+    'Around the 19th kilometre, my knees began to hurt, and every stride became a negotiation with myself. I learnt later that this is something proper training can fix. That was my first lesson. But I finished. The cheers at the finish line were the sweetest sound, as welcome as the song at the start had been.',
+
+    {
+      type: 'image',
+      src: 'media/Me_Run_2.jpg',
+      caption: 'First half marathon, 2025. 21.1 km in 2:27:01, and still sipping.'
+    },
+
+    'Looking at the two results side by side, something surprised me. Three years on, I ran more than twice the distance at a faster pace: 6:58 per kilometre against 7:37. I never set out to improve my pace. It improved anyway, from simply continuing.',
+
+    'That’s when I decided running would remain a purely recreational hobby for me, with fitness as a bonus. I know serious recreational runners who set timing goals every season and chase their personal bests. And there will always be runners far above your league, with even crazier numbers and goals. I chose not to follow that path. Running should stay a goal-free hobby, something I can enjoy even after taking a break. I have stayed true to that.',
+
+    'I have run many events since that first half marathon. I’ve felt a little of the runner’s high. I’ve learnt how precious each sip of water is in the middle of a run, and how good every calorie of the post-race meal tastes.',
+
+    'There was one more gift I didn’t expect. As a vocalist, my breath control improved on its own. Since I started running, I don’t remember having to plan my breaths, even for demanding competition-style songs.',
+
+    'And I’ve been able to nudge a few people I know into running for a healthier life. I expect that number will keep growing.'
+  ],
+  stayed: 'Running asks for very little: one more breath, one more stride. Somewhere in giving it that, the mind settles, and the rest of life follows.'
+},
   {
     id: '006',
     section: 'the-good',

@@ -119,6 +119,90 @@ var THOUGHTS = [
 
   /* ▼▼▼ ADD YOUR NEWEST THOUGHT JUST BELOW THIS LINE ▼▼▼ */
    {
+  id: '008',
+  section: 'learning',
+  title: 'The Lord Was My Shepherd',
+  date: '2026-10-15',
+  read: 9,
+  excerpt: 'The first verse my father taught me, twenty years of church, and why I can still admire Christ without believing in Christianity.',
+  body: [
+    {
+      type: 'quote',
+      text: 'The Lord is my shepherd; I shall not want. He maketh me to lie down in green pastures…',
+      cite: 'Psalm 23:1–2'
+    },
+
+    'Psalm 23 was the first verse my father taught me. I was about five. I grew up in a typical conservative family, so you can guess how slowly my ability to question dogma developed.',
+
+    'More than twenty years later, I can no longer see Christianity as the absolute truth, nor as a truly inclusive faith.',
+
+    'I should explain one distinction early, because the rest of this essay depends on it. I separate Christ, the person, from Christianity, the institutions and rules that grew up in his name. Why? Partly because Christianity has never agreed with itself. If there were one clear, final reading of his teaching, there would be one Church. Instead there are thousands of denominations, each sure of its own interpretation. So while I find Christianity exclusive, I can still read Christ as inclusive. I’ll come back to that.',
+
+    'This comes from someone who was steeped in Biblical teaching until college: retreats, elocutions, quizzes, solo singing competitions in church. But growing up inside a set of teachings and facing the world after getting a job are two different things. Growing up also means letting go of teachings that no longer connect to the world as it is, religious or otherwise, and trying to see things, places, people and their motives as they really are. Verses I once held as holy have, for me, become literature from an ancient book.',
+
+    'I have read the Bible in full, carefully. Some books remain favourites: *Job*, an old man suffering for reasons nobody can explain; *Proverbs* and *Wisdom*, with their pithy sayings; *Ecclesiastes*, which comes close to nihilism; the *Song of Songs*, which is plainly romantic poetry; and parts of the Gospels, the accounts of Jesus. These books still offer something to my agnostic mind. If that sounds strange, I hope it won’t by the end.',
+
+    'I don’t intend to be a critic of Christianity in the usual sense. Rationalists, scientists, political theorists and philosophers are better qualified for that. But I won’t avoid the elephants in the room either. I’ll take just two teachings, both still taught in churches today, and try not to sound preachy.',
+
+    { type: 'heading', text: 'Women' },
+
+    {
+      type: 'quote',
+      text: 'A woman should learn in quietness and full submission. I do not permit a woman to teach or to assume authority over a man; she must be quiet.',
+      cite: '1 Timothy 2:11–12'
+    },
+
+    'The largest Christian traditions, Catholic and Orthodox, still do not ordain women, and many evangelical churches reserve leadership for men. This verse is one of the main texts they cite. Some denominations do ordain women, but the question remains open across most of Christianity.',
+
+    'The Christ I read in the Gospels doesn’t seem to share the concern. Women followed him, funded his ministry, stayed at the cross when most of his disciples had fled, and were the first witnesses to the empty tomb. Yet the structure built in his name treats one gender as unfit to lead. I can’t feel at home in that.',
+
+    { type: 'heading', text: 'Sexuality' },
+
+    {
+      type: 'quote',
+      text: 'Or do you not know that wrongdoers will not inherit the kingdom of God? Do not be deceived: Neither the sexually immoral nor idolaters nor adulterers nor men who have sex with men…',
+      cite: '1 Corinthians 6:9'
+    },
+
+    {
+      type: 'quote',
+      text: 'Because of this, God gave them over to shameful lusts. Even their women exchanged natural sexual relations for unnatural ones. In the same way the men also abandoned natural relations with women and were inflamed with lust for one another.',
+      cite: 'Romans 1:26–27'
+    },
+
+    'Traditional Christian teaching treats same-sex relationships as a departure from divine design. Sexuality, in that view, exists for procreation within marriage, and anything else is sin. The classic definition of sin is anything that comes between a person and their love for God.',
+
+    'That is where I get stuck. I can’t see how love for another human being, even one who differs from the majority, can stand in the way of love for God, a God who may or may not exist independently of that love.',
+
+    'Before quoting these passages, I read the arguments of those who defend the traditional reading, including conservative sources such as GotQuestions. I’m not rejecting a position I haven’t understood. I’ve understood it, and I still can’t accept it.',
+
+    'As with women, we don’t know how Christ would have answered. These verses come from Paul, not from Jesus. Paul never met him during his lifetime, and many scholars doubt Paul wrote 1 Timothy at all. What the Gospels do show is Jesus stopping the stoning of a woman caught in adultery, whom the Mosaic law condemned to death, with the words: *Let any one of you who is without sin be the first to throw a stone.* Christianity has chosen to take the harder line. Christ, as far as we can tell, chose mercy.',
+
+    { type: 'heading', text: 'And Christ?' },
+
+    'So that is what Christianity is to me. What about the man whose teaching started it all?',
+
+    'This is where I part ways with most Christians, and I know it may offend some believers and surprise others.',
+
+    'I see Christ as one of the finest philosophers the world has known. From the Gospels and everything I’ve studied, his message was love: universal and transcendent. He spoke of a Father’s love that outlasts death. He was tried and executed for reasons that were at least partly political, much like Socrates. People who gather a following have always threatened whoever holds power.',
+
+    'My rationalist mind can’t accept the resurrection or the miracles. And the idea of a benevolent Creator is hard for me to square with the amount of suffering in the world, at least with the brain I have.',
+
+    'But Christ was never my problem. My problem is with those who crucify and poison philosophers, and they are still among us. We are told the mills of God grind slowly. I have a problem with that too.',
+
+    { type: 'heading', text: 'Where that leaves me' },
+
+    'Christianity was a good companion until my college years. I don’t know whether I’ll return to it as a fallback in the dog days of my life. I’m honest enough not to rule it out.',
+
+    'And I have less of a problem with church than with Christianity. In church I still meet good people, and I still get to make music as worship, even if I no longer believe in what the rituals claim to do.',
+
+    'The god that rules this earth is money. I wish the true God, if there is one, would show his true form. Or hers. So that even doubtful mortals like me might have a shot at salvation.'
+  ],
+  stayed: 'I stopped believing in the shepherd before I stopped admiring the man who told stories about him.'
+},
+
+   
+   {
   id: '007',
   section: 'movement',
   title: 'Out of Breath, Never Out of Will',

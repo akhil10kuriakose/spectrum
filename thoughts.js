@@ -122,7 +122,7 @@ var THOUGHTS = [
   id: '009',
   section: 'movement',
   title: 'Faster Than Bengaluru Traffic',
-  date: '2026-10-17',
+  date: '2026-11-20',
   read: 6,
   excerpt: 'The first race of the Procam Slam, forty thousand runners, and a city that came out with placards to cheer us on.',
   body: [

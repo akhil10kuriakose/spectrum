@@ -119,6 +119,64 @@ var THOUGHTS = [
 
   /* ▼▼▼ ADD YOUR NEWEST THOUGHT JUST BELOW THIS LINE ▼▼▼ */
    {
+  id: '009',
+  section: 'movement',
+  title: 'Faster Than Bengaluru Traffic',
+  date: '2026-10-17',
+  read: 6,
+  excerpt: 'The first race of the Procam Slam, forty thousand runners, and a city that came out with placards to cheer us on.',
+  body: [
+    'The Procam Slam is well known in Indian running circles. Runners in my group have nicknamed it the “Pro-scam” because of how commercial it is, and I took the bait anyway. It’s a set of four races in different cities, open to amateurs, and together they add up to a full year of running.',
+
+    'For the cycle we chose, the first race was in Bengaluru, on Sunday, 26 April 2026.',
+
+    'I’ve always had a quiet connection with the city. I’ve gone there to spend time with friends at an event, or to catch a film in a format Chennai didn’t have yet, like 4DX or ScreenX. I love its cosmopolitan outlook, and its weather, which the Deccan plateau keeps milder than ours for most of the year. But the TCS World 10K, the Open 10K category I signed up for as part of the Slam, changed what the city meant to me.',
+
+    'Ten kilometres doesn’t need the preparation a longer race does, so I took it easy. On race day, I saw a side of Bengaluru I hadn’t seen before. Close to forty thousand people ran with me that morning, starting in waves based on the timings each of us had submitted while registering.',
+
+    'What surprised me most were the cheer squads. The organisers had placed them at intervals along the route: groups of young, energetic volunteers whose whole job was to shout encouragement and offer a high-five to any runner who wanted one. Back home in Chennai, cheer squads were only just starting to catch on. This first run in Bengaluru swept me off my feet.',
+
+    'It wasn’t only the volunteers. People from the city had come out just to watch so many of us run, and many carried placards.',
+
+    {
+      type: 'quotes',
+      label: 'Placards along the route',
+      items: [
+        { text: 'You look hot, don’t you stop!' },
+        { text: 'Woke up early on a Sunday to see you run.' },
+        { text: 'You’re faster than Bengaluru traffic!' }
+      ]
+    },
+
+    'I’m a very verbal person. Words get to me far more than shouting does. Every placard put a big smile on my face, and there were plenty more where those came from. Not all of them were jokes. One small runner carried a hand-painted tree with a plea in English and Kannada.',
+
+    {
+      type: 'image',
+      src: 'media/Blr10K_Placard.jpg',
+      caption: '“Do not cut me, it hurts.” Some placards were jokes. This one wasn’t.'
+    },
+
+    'Then there was the Red Bull station, with loud, bass-heavy music playing next to the drinks. I picked up my pace and sprinted for a few metres without meaning to. The energy around me was contagious, and I couldn’t resist it.',
+
+    'Some runners went further and turned themselves into the message. Costumes were everywhere. One runner had dressed as an asura of Depression, giving a face to an illness that usually goes unseen and bringing mental health right into the middle of the race.',
+
+    'A whole group ran dressed as LPG cylinders. Seven weeks earlier, cooking-gas prices had jumped after the conflict in the Middle East choked supply through the Strait of Hormuz, and there had been queues outside gas agencies across the country. Here was that grievance, running ten kilometres in costume.',
+
+    {
+      type: 'image',
+      src: 'media/Blr10K_LPG.jpg',
+      caption: 'Cylinders on the run, with the Vidhana Soudha behind them.'
+    },
+
+    'I hadn’t looked at the route map beforehand, though it was on the website, so the landmarks came as a surprise. The route passed the Vidhana Soudha, home of Karnataka’s legislature, and a gate of the M. Chinnaswamy Stadium, the city’s famous cricket ground.',
+
+    'In Thought #007, I wrote that running reduces life to the current breath and the next stride. That’s still true for me. But on this morning, running did the opposite: instead of narrowing everything down to me, it opened me up to a whole city that had turned out to cheer.',
+
+    'I’d also written that running would remain a goal-free hobby for me. Here was one of the rewards of that choice. With no time to chase, I could run carefree, enjoy every kilometre, and take in the energy and culture of a city I had never run in before.'
+  ],
+  stayed: 'Some runs you finish on willpower. This one, a city carried me through, one placard at a time.'
+},   
+   {
   id: '008',
   section: 'learning',
   title: 'The Lord Was My Shepherd',

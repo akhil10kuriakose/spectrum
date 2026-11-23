@@ -118,6 +118,77 @@
 var THOUGHTS = [
 
   /* ▼▼▼ ADD YOUR NEWEST THOUGHT JUST BELOW THIS LINE ▼▼▼ */
+
+     {
+    id: '010',
+    section: 'music',
+    title: 'A Life in Four and a Half Minutes',
+    date: '2026-11-23',
+    read: 7,
+    excerpt: 'A Hans Zimmer cue from *Pirates of the Caribbean*, read as a whole human life, and the track I want at both my wedding and my funeral.',
+    body: [
+      'Like any film lover, I came across *Pirates of the Caribbean* the way you come across any franchise with a huge following. What stayed with me was Captain Jack Sparrow: unpredictable, uncanny, and committed to freedom and autonomy above everything else. I’d like to be that kind of leader in my own way, tired of always toeing the line that was expected of me, and still is.',
+
+      'But the thing that stayed with me even more was the music. Fans will agree it does a lot of the work in this franchise, lifting the big scenes. And for me, one track stands above the rest: *Drink Up Me Hearties*, from Hans Zimmer’s score for *At World’s End* (2007).',
+
+      'I want it played at my wedding, in place of the usual Wedding March. I want it played at my funeral too. It’s that deep for me, and by the end of this piece I hope you’ll see why.',
+
+      'I don’t know whether anyone has read a piece of music quite the way I’m about to read this one. So listen first. You’ll enjoy it even if you haven’t seen the films, and more if you have. My timestamps follow the orchestral version by the City of Prague Philharmonic Orchestra:',
+
+      {
+        type: 'spotify',
+        id: 'https://open.spotify.com/track/5aOPaEsJQwq0FwYNPKqfV1',
+        caption: '*Drink Up Me Hearties*, City of Prague Philharmonic Orchestra.'
+      },
+
+      '(For the record keepers: it’s track 13 on the official soundtrack album.)',
+
+      'A caveat before I begin. This is my personal interpretation, and it almost certainly isn’t what the composers intended. That’s the beauty of it. What is a small cue for one listener can be a whole philosophy for another. I’d encourage you to find your own reading, of this and of any piece of art, and to treat mine as just one of many.',
+
+      'To me, this track is a mirror of a human life, from birth to death. Take it slowly if you have the patience, or one section at a time if you prefer. Pause generously.',
+
+      'One idea from music helps here. Composers build *tension*: a passage that feels unresolved and leaves you leaning forward. Then they *release* it: the music settles, and you breathe out. A piece can hold as many rounds of tension and release as the composer needs to paint the picture. Life has a few of those too.',
+
+      { type: 'heading', text: 'The first minute: childhood and growing up' },
+
+      '*0:00 – 0:20 · Innocence.* A single melody line, simple and easy to follow. Childlike purity and play.',
+
+      '*0:20 – 0:50 · Tension: growing up.* Adolescence and after. Learning about the world and its people, the good, the bad and the ugly, and the pain that comes with it. Finding a footing, spiritual or otherwise.',
+
+      '*0:50 – 1:15 · Finding confidence.* What has been learnt starts to prove useful in the first pursuits of adult life.',
+
+      { type: 'heading', text: 'The second minute: adventure' },
+
+      '*1:15 – 2:05 · Release: standing alone.* Standing tall in one’s own confidence. Seeking adventure and freedom for the first time, purely out of liking. Tasting both the highs and the costs of those adventures, learning the lessons, getting better.',
+
+      'This is the motif that recurs throughout the films. You’ve probably heard it many times without placing it. It carries Jack Sparrow’s energy: daring and reckless, but calculating and manipulative when he needs to be.',
+
+      { type: 'heading', text: 'The third minute: the summit' },
+
+      '*2:05 – 2:18 · Tension: the first great challenge.* The music builds to a peak. Life’s first big test, and the effort to meet it.',
+
+      '*2:18 – 2:30 · Release, and a magnificent one.* Achieving something big and savouring it. Rising to a challenge and seeing it through. A mid-life crisis, survived.',
+
+      '*2:30 – 2:45 · Ecstasy.* The celebration after success.',
+
+      '*2:45 – 3:00 · Tension: the bigger questions.* The strings come in gradually. Do the achievements add up to meaning? Was the quest worth it?',
+
+      { type: 'heading', text: 'The last stretch: meaning and legacy' },
+
+      '*3:00 – 3:25 · Release: peace in simple things.* Meaning can be found in anything you pour your heart into, even an ordinary afternoon with someone you love.',
+
+      '*3:25 – 3:55 · Legacy.* Finding ways to outlast yourself: building a family and passing something on, or making something that outlives you.',
+
+      '*3:55 – 4:15 · Diminuendo.* The volume falls. Interest in earthly pursuits fades, and one keeps going under the weight of existence anyway.',
+
+      '*4:15 – 4:35 · The end.* The volume rises and falls, again and again, like the last struggle with death. But a graceful one.',
+
+      'That’s my reading. Which is why I want it at both ends of the life it describes.',
+
+      'Drink up, me hearties, yo ho. Until another time, and music in another form. Have a good life.'
+    ],
+    stayed: 'Four and a half minutes of music, and it held everything I hope my life will be: adventure first, peace after, and a graceful exit.'
+  },
    {
   id: '009',
   section: 'movement',

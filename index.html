@@ -86,10 +86,6 @@ nav.main a:hover,nav.main a.active{color:var(--ink)}
   padding-bottom:2px}
 .uline:hover{background-size:100% 1px}
 
-.cta{display:inline-flex;align-items:center;gap:8px;font-weight:500;color:var(--ink)}
-.cta .arw{transition:transform .3s ease;display:inline-block}
-.cta:hover .arw{transform:translateX(5px)}
-
 /* flower */
 .flower{position:relative;user-select:none;max-width:88vw}
 .flower svg{width:100%;height:auto;overflow:visible;display:block}
@@ -106,22 +102,11 @@ nav.main a:hover,nav.main a.active{color:var(--ink)}
 .caption .c-title{font-family:var(--display);font-size:26px;margin-top:4px}
 .caption .c-sub{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--mist)}
 
-/* hero (legacy home) */
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:88px 0 40px}
-.hero h1{font-family:var(--display);font-size:60px;line-height:1.05;margin:20px 0 0}
-.hero .lead{color:var(--mist);font-size:18px;line-height:1.7;margin-top:28px;max-width:26rem}
-.hero .flower-col{display:flex;justify-content:center}
-
 /* cards */
 .grid{display:grid;gap:40px 32px}
-.g3{grid-template-columns:repeat(3,1fr)}
 .g2{grid-template-columns:repeat(2,1fr)}
-.card .dotrow{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.card .ex{color:var(--mist);font-size:14px;line-height:1.6}
 .dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:none}
-.card h3{font-family:var(--serif);font-size:24px;line-height:1.25;color:#26262a;transition:color .3s}
-.card:hover h3{color:var(--ink)}
-.card p.ex{color:var(--mist);font-size:14px;line-height:1.6;margin-top:12px}
-.card .meta{font-size:12px;color:#9a9a9e;margin-top:16px}
 
 /* section header */
 .sec-hd{border-bottom:1px solid var(--hair)}
@@ -176,6 +161,10 @@ nav.main a:hover,nav.main a.active{color:var(--ink)}
 .embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#eceae5}
 .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
+/* spotify embed */
+.spotify{width:100%;border-radius:12px;overflow:hidden;background:#eceae5}
+.spotify iframe{display:block;width:100%;border:0}
+
 /* link card */
 .linkblock{display:block;border:1px solid var(--hair);border-radius:8px;padding:18px 20px;
   transition:border-color .3s ease,background .3s ease}
@@ -223,21 +212,14 @@ footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
 
 /* utilities */
 .mt6{margin-top:24px}.mt10{margin-top:40px}.mt14{margin-top:56px}
-.section-pad{padding-top:56px;padding-bottom:56px}
-.row-between{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px}
 .center{text-align:center}
 .maxw2{max-width:40rem;margin-left:auto;margin-right:auto}
 
 .fade{animation:fade .8s ease both}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-.rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
-@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 /* ============ RESPONSIVE ============ */
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;gap:36px;padding:56px 0 24px}
-  .hero h1{font-size:46px}
-  .g3{grid-template-columns:1fr 1fr}
   .sec-hd h1{font-size:44px}
   .article h1{font-size:38px}
   .about h1{font-size:40px}
@@ -248,12 +230,10 @@ footer.bot .ftag{font-size:12px;color:var(--mist);margin-top:4px}
   footer.bot{margin-top:56px}
   footer.bot .inner{padding-top:36px;padding-bottom:36px}
   nav.main{gap:18px}
-  .g3,.g2{grid-template-columns:1fr}
+  .g2{grid-template-columns:1fr}
   .related{grid-template-columns:1fr}
   .about .legend{grid-template-columns:1fr}
   .arow .adate{display:none}
-  .hero{padding:40px 0 16px}
-  .hero h1{font-size:38px}
   .sec-hd .inner{padding-top:48px;padding-bottom:48px}
   .sec-hd h1{font-size:34px}
   .sec-hd .sub{font-size:22px}
@@ -318,12 +298,22 @@ if (typeof THOUGHTS === 'undefined' || !Array.isArray(THOUGHTS)) { var THOUGHTS 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 /* *italics* — HTML escaped first, so it stays safe */
 function fmt(s){ return esc(s).replace(/\*([^*]+)\*/g,'<em>$1</em>'); }
+function plain(s){ return String(s||'').replace(/\*/g,''); }
 function safeUrl(u){ u=String(u||''); return /^https?:\/\//i.test(u) ? esc(u) : '#'; }
 function ytId(v){
   v=String(v||'');
   var m=v.match(/(?:youtu\.be\/|v=|\/embed\/|\/shorts\/)([A-Za-z0-9_-]{6,})/);
   var id=m?m[1]:v;
   return /^[A-Za-z0-9_-]{6,}$/.test(id)?id:'';
+}
+/* spotifyRef() — accepts a share link, an embed link, the whole embed
+   code, or a bare ID. Returns {kind, id} or null. */
+function spotifyRef(v){
+  v=String(v||'');
+  var m=v.match(/open\.spotify\.com\/(?:intl-[a-z]+\/)?(?:embed\/)?(track|album|playlist|episode|show|artist)\/([A-Za-z0-9]{10,})/);
+  if(m) return {kind:m[1], id:m[2]};
+  if(/^[A-Za-z0-9]{10,}$/.test(v)) return {kind:'track', id:v};
+  return null;
 }
 function fmtDate(iso){return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});}
 function monthKey(iso){return new Date(iso+'T00:00:00').toLocaleDateString('en-GB',{month:'long',year:'numeric'});}
@@ -413,14 +403,6 @@ function footer(){
       '<div><p class="fname">Spectrum</p><p class="ftag">Seven colours. Seven perspectives. One observer.</p></div></div>'+
     '<div class="fdots">'+dots+'</div></div></footer>';
 }
-function thoughtCard(t){
-  var s=byId[t.section];
-  return '<a class="card" href="#/thought/'+t.id+'">'+
-    '<div class="dotrow"><span class="dot" style="background:'+s.hex+'"></span>'+
-      '<span class="c-col" style="color:'+s.hex+'">'+esc(s.title)+'</span></div>'+
-    '<h3>'+fmt(t.title)+'</h3><p class="ex">'+fmt(t.excerpt)+'</p>'+
-    '<p class="meta">Thought #'+t.id+' · '+fmtDate(t.date)+' · '+t.read+' min</p></a>';
-}
 
 /* ============================================================
    ARTICLE BODY RENDERER
@@ -430,6 +412,7 @@ function thoughtCard(t){
      { type:'quote',   text, cite }
      { type:'quotes',  label, items:[{text,cite}, …] }   styled list
      { type:'youtube', id (URL or ID), caption }
+     { type:'spotify', id (link, embed code or ID), caption }
      { type:'link',    url, title, label }
      { type:'audio',   src, caption }
      { type:'video',   src, caption }
@@ -440,7 +423,7 @@ function renderBlock(p){
   if(p && typeof p === 'object'){
     if(p.type==='heading'){ return '<h2>'+fmt(p.text||'')+'</h2>'; }
     if(p.type==='image'){
-      return '<figure><img src="'+esc(p.src)+'" alt="'+esc(String(p.caption||'').replace(/\*/g,''))+'" loading="lazy">'+figcap(p.caption)+'</figure>';
+      return '<figure><img src="'+esc(p.src)+'" alt="'+esc(plain(p.caption))+'" loading="lazy">'+figcap(p.caption)+'</figure>';
     }
     if(p.type==='quote'){
       return '<blockquote><p>'+fmt(p.text||'')+'</p>'+(p.cite?'<cite>'+fmt(p.cite)+'</cite>':'')+'</blockquote>';
@@ -454,8 +437,16 @@ function renderBlock(p){
     if(p.type==='youtube'){
       var vid=ytId(p.id||p.url||p.src); if(!vid) return '';
       return '<figure><div class="embed"><iframe src="https://www.youtube-nocookie.com/embed/'+vid+'" '+
-        'title="'+esc(String(p.caption||'YouTube video').replace(/\*/g,''))+'" loading="lazy" allowfullscreen '+
+        'title="'+esc(plain(p.caption)||'YouTube video')+'" loading="lazy" allowfullscreen '+
         'allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>'+
+        figcap(p.caption)+'</figure>';
+    }
+    if(p.type==='spotify'){
+      var sp=spotifyRef(p.id||p.url||p.src); if(!sp) return '';
+      var h = (sp.kind==='track' || sp.kind==='episode') ? 152 : 352;
+      return '<figure><div class="spotify"><iframe src="https://open.spotify.com/embed/'+sp.kind+'/'+sp.id+'" '+
+        'height="'+h+'" title="'+esc(plain(p.caption)||'Spotify player')+'" loading="lazy" '+
+        'allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>'+
         figcap(p.caption)+'</figure>';
     }
     if(p.type==='link'){
@@ -477,15 +468,15 @@ function pageSpectrum(){
     return '<a class="card" href="#/section/'+s.id+'" style="display:flex;gap:16px">'+
       '<span class="dot" style="width:14px;height:14px;background:'+s.hex+';margin-top:6px"></span>'+
       '<div><div style="display:flex;align-items:baseline;gap:12px">'+
-        '<h3 class="display" style="font-size:24px;font-family:var(--display)">'+esc(s.title)+'</h3>'+
+        '<h3 class="display" style="font-size:24px">'+esc(s.title)+'</h3>'+
         '<span class="eyebrow">'+esc(s.colour)+'</span></div>'+
-        '<p class="c-sub" style="font-family:var(--serif);font-style:italic;color:var(--mist);font-size:19px">'+esc(s.subtitle)+'</p>'+
+        '<p style="font-family:var(--serif);font-style:italic;color:var(--mist);font-size:19px">'+esc(s.subtitle)+'</p>'+
         '<p class="ex" style="margin-top:6px">'+esc(s.blurb)+'</p></div></a>';
   }).join('');
   return '<main class="fade"><div class="wrap" style="padding-top:56px;padding-bottom:40px">'+
     '<div class="center maxw2"><p class="eyebrow">The Spectrum</p>'+
       '<h1 class="h-page">Seven lenses, one flower</h1>'+
-      '<p class="lead mist" style="font-size:18px;line-height:1.7;margin:20px auto 0">Each petal is a recurring direction my thoughts travel. Hover to learn it, click to enter it. The white centre is always the way home.</p></div>'+
+      '<p class="mist" style="font-size:18px;line-height:1.7;margin:20px auto 0">Each petal is a recurring direction my thoughts travel. Hover to learn it, click to enter it. The white centre is always the way home.</p></div>'+
     '<div style="display:flex;justify-content:center;margin:48px 0">'+flowerSVG(480)+'</div>'+
     '<hr class="rule mt10" style="margin-bottom:40px">'+
     '<div class="grid g2">'+list+'</div></div></main>';
@@ -505,7 +496,7 @@ function pageSection(id){
   return '<main class="fade">'+
     '<div class="sec-hd" style="background:'+s.tint+'"><div class="wrap-md inner">'+
       '<a class="uline mist" href="#/" style="font-size:12px">← Spectrum</a>'+
-      '<div class="dotrow mt6" style="display:flex;align-items:center;gap:8px"><span class="dot" style="background:'+s.hex+'"></span>'+
+      '<div class="mt6" style="display:flex;align-items:center;gap:8px"><span class="dot" style="background:'+s.hex+'"></span>'+
         '<span class="eyebrow" style="color:'+s.hex+'">'+esc(s.colour)+'</span></div>'+
       '<h1>'+esc(s.title)+'</h1><p class="sub">'+esc(s.subtitle)+'</p>'+
       '<p class="blurb">'+esc(s.blurb)+'</p>'+
@@ -546,7 +537,7 @@ function pageArchive(){
     groups[y]=groups[y]||{}; groups[y][m]=groups[y][m]||[]; groups[y][m].push(t);
   });
   var strip=THOUGHTS.slice().sort(function(a,b){return a.date.localeCompare(b.date);}).map(function(t){
-    return '<a href="#/thought/'+t.id+'" title="'+esc(String(t.title).replace(/\*/g,''))+'" style="background:'+byId[t.section].hex+'"></a>';
+    return '<a href="#/thought/'+t.id+'" title="'+esc(plain(t.title))+'" style="background:'+byId[t.section].hex+'"></a>';
   }).join('');
   var years=Object.keys(groups).sort(function(a,b){return b.localeCompare(a);});
   var out=years.map(function(y){
@@ -609,7 +600,6 @@ function parseHash(){
 function go(path){ location.hash=path; }
 function docTitle(r){
   var t='Spectrum — Seven colours. Seven perspectives. One observer.';
-  function plain(x){ return String(x).replace(/\*/g,''); }
   if(r.name==='section'&&byId[r.param]) t=byId[r.param].title+' — Spectrum';
   else if(r.name==='thought'){ var th=null;THOUGHTS.forEach(function(x){if(x.id===r.param)th=x;}); if(th)t=plain(th.title)+' — Spectrum'; }
   else if(r.name==='archive') t='Archive — Spectrum';
